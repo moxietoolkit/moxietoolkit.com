@@ -10,7 +10,7 @@ function TrackPageView() {
 
   // Load the Fathom script on mount
   useEffect(() => {
-    load('NEXT_PUBLIC_FATHOM_ANALYTICS', {
+    load(process.env.NEXT_PUBLIC_FATHOM_ANALYTICS, {
       auto: false
     });
   }, []);
