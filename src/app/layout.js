@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import Fathom from "./utils/fathom";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-grimwild-light text-grimwild-dark min-h-screen flex items-center justify-center`}
       >
+        <Fathom />
         {children}
       </body>
     </html>
