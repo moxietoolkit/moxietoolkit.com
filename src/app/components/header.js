@@ -1,7 +1,14 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { Dialog, DialogPanel, Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/react'
+import { useState } from 'react';
+import {
+  Dialog,
+  DialogPanel,
+  Popover,
+  PopoverButton,
+  PopoverGroup,
+  PopoverPanel,
+} from '@headlessui/react';
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -10,43 +17,95 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import Image from "next/image";
-import madeWithMoxie from "@/app/assets/made-with-moxie.png";
+} from '@heroicons/react/24/outline';
+import {
+  ChevronDownIcon,
+  PhoneIcon,
+  PlayCircleIcon,
+} from '@heroicons/react/20/solid';
+import Image from 'next/image';
+import madeWithMoxie from '@/app/assets/made-with-moxie.png';
 
 const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-]
+  {
+    name: 'Analytics',
+    description: 'Get a better understanding of your traffic',
+    href: '#',
+    icon: ChartPieIcon,
+  },
+  {
+    name: 'Engagement',
+    description: 'Speak directly to your customers',
+    href: '#',
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: 'Security',
+    description: 'Your customers’ data will be safe and secure',
+    href: '#',
+    icon: FingerPrintIcon,
+  },
+  {
+    name: 'Integrations',
+    description: 'Connect with third-party tools',
+    href: '#',
+    icon: SquaresPlusIcon,
+  },
+  {
+    name: 'Automations',
+    description: 'Build strategic funnels that will convert',
+    href: '#',
+    icon: ArrowPathIcon,
+  },
+];
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
   { name: 'Contact sales', href: '#', icon: PhoneIcon },
-]
+];
 const company = [
-  { name: 'About us', href: '#', description: 'Learn more about our company values and mission to empower others' },
-  { name: 'Careers', href: '#', description: 'Looking for you next career opportunity? See all of our open positions' },
+  {
+    name: 'About us',
+    href: '#',
+    description:
+      'Learn more about our company values and mission to empower others',
+  },
+  {
+    name: 'Careers',
+    href: '#',
+    description:
+      'Looking for you next career opportunity? See all of our open positions',
+  },
   {
     name: 'Support',
     href: '#',
-    description: 'Get in touch with our dedicated support team or reach out on our community forums',
+    description:
+      'Get in touch with our dedicated support team or reach out on our community forums',
   },
-  { name: 'Blog', href: '#', description: 'Read our latest announcements and get perspectives from our team' },
-]
+  {
+    name: 'Blog',
+    href: '#',
+    description:
+      'Read our latest announcements and get perspectives from our team',
+  },
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-grimwild-green text-grimwild-light">
-      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
+      <nav
+        aria-label="Global"
+        className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
+      >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Image src={madeWithMoxie} alt="Made with Moxie" className="max-w-[200px] inline-block" />
+            <Image
+              src={madeWithMoxie}
+              alt="Made with Moxie"
+              className="max-w-[200px] inline-block"
+            />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -63,7 +122,10 @@ export default function Header() {
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-xl/6 font-semibold text-grimwild-light">
               For Players
-              <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-grimwild-yellow" />
+              <ChevronDownIcon
+                aria-hidden="true"
+                className="size-5 flex-none text-grimwild-yellow"
+              />
             </PopoverButton>
 
             <PopoverPanel
@@ -77,10 +139,16 @@ export default function Header() {
                     className="group relative flex gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
                   >
                     <div className="mt-1 flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                      <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                      <item.icon
+                        aria-hidden="true"
+                        className="size-6 text-gray-600 group-hover:text-indigo-600"
+                      />
                     </div>
                     <div className="flex-auto">
-                      <a href={item.href} className="block font-semibold text-gray-900">
+                      <a
+                        href={item.href}
+                        className="block font-semibold text-gray-900"
+                      >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
@@ -96,7 +164,10 @@ export default function Header() {
                     href={item.href}
                     className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
                   >
-                    <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                    <item.icon
+                      aria-hidden="true"
+                      className="size-5 flex-none text-gray-400"
+                    />
                     {item.name}
                   </a>
                 ))}
@@ -111,7 +182,10 @@ export default function Header() {
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-xl/6 font-semibold text-grimwild-light">
               Characters
-              <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-grimwild-yellow" />
+              <ChevronDownIcon
+                aria-hidden="true"
+                className="size-5 flex-none text-grimwild-yellow"
+              />
             </PopoverButton>
 
             <PopoverPanel
@@ -119,19 +193,31 @@ export default function Header() {
               className="absolute top-full -left-8 z-10 mt-3 w-96 rounded-3xl bg-white p-4 ring-1 shadow-lg ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
             >
               {company.map((item) => (
-                <div key={item.name} className="relative rounded-lg p-4 hover:bg-gray-50">
-                  <a href={item.href} className="block text-sm/6 font-semibold text-gray-900">
+                <div
+                  key={item.name}
+                  className="relative rounded-lg p-4 hover:bg-gray-50"
+                >
+                  <a
+                    href={item.href}
+                    className="block text-sm/6 font-semibold text-gray-900"
+                  >
                     {item.name}
                     <span className="absolute inset-0" />
                   </a>
-                  <p className="mt-1 text-sm/6 text-gray-600">{item.description}</p>
+                  <p className="mt-1 text-sm/6 text-gray-600">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </PopoverPanel>
           </Popover>
         </PopoverGroup>
       </nav>
-      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+      <Dialog
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+        className="lg:hidden"
+      >
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 flex w-full flex-col justify-between overflow-y-auto bg-white sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="p-6">
@@ -163,7 +249,10 @@ export default function Header() {
                       className="group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                     >
                       <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-6 text-gray-600 group-hover:text-indigo-600"
+                        />
                       </div>
                       {item.name}
                     </a>
@@ -218,5 +307,5 @@ export default function Header() {
         </DialogPanel>
       </Dialog>
     </header>
-  )
+  );
 }

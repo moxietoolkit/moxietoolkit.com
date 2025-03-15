@@ -11,17 +11,16 @@ function TrackPageView() {
   // Load the Fathom script on mount
   useEffect(() => {
     load(process.env.NEXT_PUBLIC_FATHOM_ANALYTICS, {
-      auto: false
+      auto: false,
     });
   }, []);
 
   // Record a pageview when route changes
   useEffect(() => {
     if (!pathname) return;
-
     trackPageview({
-      url: pathname + searchParams?.toString(),
-      referrer: document.referrer
+      url: pathname + (searchParams?.toString() || ''),
+      referrer: document.referrer,
     });
   }, [pathname, searchParams]);
 
