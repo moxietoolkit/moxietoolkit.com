@@ -1,15 +1,7 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Fathom from "./utils/fathom";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Header from "./components/header";
+import SidebarLayout from "./components/sidebarLayout";
 
 export const metadata = {
   title: "Moxie Toolkit",
@@ -18,12 +10,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-grimwild-light text-grimwild-dark min-h-screen flex items-center justify-center`}
+        className="antialiased bg-grimwild-light text-grimwild-dark h-full"
       >
+        {/* <Header /> */}
         <Fathom />
-        {children}
+        <SidebarLayout>
+          {children}
+        </SidebarLayout>
       </body>
     </html>
   );
