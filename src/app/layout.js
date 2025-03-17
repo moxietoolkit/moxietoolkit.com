@@ -1,7 +1,7 @@
 import './globals.css';
 import PropTypes from 'prop-types';
-import Fathom from './utils/fathom';
-import SidebarLayout from './components/sidebarLayout';
+import Fathom from '../utils/fathom';
+import SidebarLayout from '../components/sidebarLayout';
 
 export const metadata = {
   title: 'Moxie Toolkit',

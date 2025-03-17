@@ -33,8 +33,8 @@ import {
   MagnifyingGlassIcon,
 } from '@heroicons/react/20/solid';
 import Image from 'next/image';
-import madeWithMoxie from '@/app/assets/made-with-moxie.png';
-import bgPattern from '@/app/assets/images/bg-pattern.png';
+import madeWithMoxie from '@/assets/made-with-moxie.png';
+import bgPattern from '@/assets/images/bg-pattern.png';
 
 const navigation = [
   {

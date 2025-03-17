@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
-@import './assets/fonts/stylesheet.css';
+@import '../assets/fonts/stylesheet.css';
 
 @theme {
   --color-grimwild-blue: rgba(90, 107, 140, 1);
