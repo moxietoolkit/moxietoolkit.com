@@ -238,24 +238,50 @@ export default function SidebarLayout({ children }) {
                   <ul className="-mx-2 space-y-1">
                     {navigation.map((item) => (
                       <li key={item.name}>
-                        <a
-                          href={item.href}
-                          className={classNames(
-                            item.current
-                              ? 'bg-indigo-700 text-white'
-                              : 'text-white hover:bg-indigo-700 hover:text-white',
-                            'group flex gap-x-3 rounded-md p-2 text-lg font-semibold',
-                          )}
-                        >
-                          {/* <item.icon
-                            aria-hidden="true"
+                        {!item.children ? (
+                          <a
+                            href={item.href}
                             className={classNames(
-                              item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white',
-                              'size-6 shrink-0',
+                              item.current ? '' : '',
+                              'block rounded-md py-2 pr-2 pl-10 text-xl font-semibold text-white',
                             )}
-                          /> */}
-                          {item.name}
-                        </a>
+                          >
+                            {item.name}
+                          </a>
+                        ) : (
+                          <Disclosure as="div">
+                            <DisclosureButton
+                              className={classNames(
+                                item.current ? '' : '',
+                                'group flex w-full items-center gap-x-3 rounded-md p-2 text-left text-xl font-semibold text-white',
+                              )}
+                            >
+                              {item.name}
+                              <ChevronRightIcon
+                                aria-hidden="true"
+                                className="size-5 shrink-0 text-gray-400 group-data-open:rotate-90 group-data-open:text-gray-500"
+                              />
+                            </DisclosureButton>
+                            <DisclosurePanel as="ul" className="mt-1 px-2">
+                              {item.children.map((subItem) => (
+                                <li key={subItem.name}>
+                                  <DisclosureButton
+                                    as="a"
+                                    href={subItem.href}
+                                    className={classNames(
+                                      subItem.current
+                                        ? 'bg-gray-50'
+                                        : 'hover:bg-gray-50',
+                                      'block rounded-md py-2 pr-2 pl-9 text-xl text-white',
+                                    )}
+                                  >
+                                    {subItem.name}
+                                  </DisclosureButton>
+                                </li>
+                              ))}
+                            </DisclosurePanel>
+                          </Disclosure>
+                        )}
                       </li>
                     ))}
                   </ul>
