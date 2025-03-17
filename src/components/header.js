@@ -24,7 +24,7 @@ import {
   PlayCircleIcon,
 } from '@heroicons/react/20/solid';
 import Image from 'next/image';
-import madeWithMoxie from '@/app/assets/made-with-moxie.png';
+import madeWithMoxie from '@/assets/made-with-moxie.png';
 
 const products = [
   {
