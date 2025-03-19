@@ -36,7 +36,7 @@ import Image from 'next/image';
 import madeWithMoxie from '@/assets/made-with-moxie.png';
 import bgPattern from '@/assets/images/bg-pattern.png';
 
-const navigation = [
+const navigationData = [
   {
     name: 'Players',
     href: '#',
@@ -66,8 +66,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function SidebarLayout({ children }) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+export default function SidebarLayout({ children, navigation }) {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
     <>
@@ -80,6 +80,7 @@ export default function SidebarLayout({ children }) {
         ```
       */}
       <div>
+        {console.log(navigation)}
         <Dialog
           open={sidebarOpen}
           onClose={setSidebarOpen}
@@ -123,7 +124,7 @@ export default function SidebarLayout({ children }) {
                   <ul className="flex flex-1 flex-col gap-y-7">
                     <li>
                       <ul className="-mx-2 space-y-1">
-                        {navigation.map((item) => (
+                        {navigationData.map((item) => (
                           <li key={item.name}>
                             {!item.children ? (
                               <a
@@ -235,7 +236,7 @@ export default function SidebarLayout({ children }) {
             <nav className="flex flex-1 flex-col">
               <ul className="flex flex-1 flex-col gap-y-7">
                 <li>
-                  <ul className="-mx-2 space-y-1">
+                  <ul className="-mx-2">
                     {navigation.map((item) => (
                       <li key={item.name}>
                         {!item.children ? (
@@ -243,7 +244,7 @@ export default function SidebarLayout({ children }) {
                             href={item.href}
                             className={classNames(
                               item.current ? '' : '',
-                              'block rounded-md py-2 pr-2 pl-10 text-xl font-semibold text-white',
+                              'block rounded-md py-2 pr-2 pl-10 text-2xl font-semibold text-white',
                             )}
                           >
                             {item.name}
@@ -253,7 +254,7 @@ export default function SidebarLayout({ children }) {
                             <DisclosureButton
                               className={classNames(
                                 item.current ? '' : '',
-                                'group flex w-full items-center gap-x-3 rounded-md p-2 text-left text-xl font-semibold text-white',
+                                'group flex w-full items-center gap-x-3 rounded-md p-4 text-left text-2xl font-semibold text-white/90 leading-none hover:bg-grimwild-green-dark hover:text-white transition-colors duration-150',
                               )}
                             >
                               {item.name}
@@ -272,7 +273,7 @@ export default function SidebarLayout({ children }) {
                                       subItem.current
                                         ? 'bg-gray-50'
                                         : 'hover:bg-gray-50',
-                                      'block rounded-md py-2 pr-2 pl-9 text-xl text-white',
+                                      'block rounded-md px-4 py-2 text-lg text-white/90 leading-tight hover:bg-grimwild-green-dark hover:text-white transition-colors duration-150',
                                     )}
                                   >
                                     {subItem.name}
@@ -285,6 +286,20 @@ export default function SidebarLayout({ children }) {
                       </li>
                     ))}
                   </ul>
+                </li>
+              </ul>
+            </nav>
+            <nav className="mt-auto text-white">
+              <ul className="flex flex-row gap-x-2">
+                <li>
+                  <a href="#">
+                    <span>Licensing</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span>Colophon</span>
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -393,4 +408,18 @@ export default function SidebarLayout({ children }) {
 
 SidebarLayout.propTypes = {
   children: PropTypes.node.isRequired,
+  navigation: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+      icon: PropTypes.elementType,
+      current: PropTypes.bool,
+      children: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          href: PropTypes.string.isRequired,
+        }),
+      ),
+    }),
+  ).isRequired,
 };
