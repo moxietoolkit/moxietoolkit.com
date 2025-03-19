@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import fs from 'fs/promises';
 import path from 'path';
+import matter from 'gray-matter';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 
 export default async function Page({ params: paramsPromise }) {
   const params = await paramsPromise;
@@ -23,13 +25,17 @@ export default async function Page({ params: paramsPromise }) {
       throw new Error(`No content found for ${slug}`);
     }
 
-    const { default: Post } = await import(
-      `../../../content/1-system/1-player/${matchingFile}`
-    );
+    // Read the file content to get frontmatter
+    const filePath = path.join(contentDir, matchingFile);
+    const fileContent = await fs.readFile(filePath, 'utf-8');
+    const { data: frontmatter, content } = matter(fileContent);
+
     return (
-      <div>
-        <h1>Player</h1>
-        <Post />
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-5xl font-bold mb-4">{frontmatter.title}</h1>
+        <article className="prose lg:prose-lg max-w-2xl mx-auto">
+          <MDXRemote source={content} />
+        </article>
       </div>
     );
   } catch (error) {

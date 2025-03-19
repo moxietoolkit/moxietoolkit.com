@@ -35,6 +35,7 @@ import {
 import Image from 'next/image';
 import madeWithMoxie from '@/assets/made-with-moxie.png';
 import bgPattern from '@/assets/images/bg-pattern.png';
+import MadeWithMoxieLogo from '@/components/MadeWithMoxieLogo';
 
 const navigationData = [
   {
@@ -225,13 +226,9 @@ export default function SidebarLayout({ children, navigation }) {
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-grimwild-green px-6 pt-4 pb-4">
+          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-grimwild-green px-6 pt-6 pb-4">
             <div className="flex h-16 shrink-0 items-center">
-              <Image
-                src={madeWithMoxie}
-                alt="Made with Moxie"
-                className="mt-4"
-              />
+              <MadeWithMoxieLogo className="w-full fill-grimwild-yellow -rotate-2" />
             </div>
             <nav className="flex flex-1 flex-col">
               <ul className="flex flex-1 flex-col gap-y-7">
@@ -260,7 +257,8 @@ export default function SidebarLayout({ children, navigation }) {
                               {item.name}
                               <ChevronRightIcon
                                 aria-hidden="true"
-                                className="size-5 shrink-0 text-gray-400 group-data-open:rotate-90 group-data-open:text-gray-500"
+                                className="size-5 shrink-0 text-grimwild-yellow group-data-open:rotate-90 
+                                transition-all duration-150 group-data-open:text-grimwild-yellow"
                               />
                             </DisclosureButton>
                             <DisclosurePanel as="ul" className="mt-1 px-2">
