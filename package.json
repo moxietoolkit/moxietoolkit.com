@@ -23,6 +23,7 @@
     "gray-matter": "^4.0.3",
     "moxietoolkit": "github:moxietoolkit/srd",
     "next": "15.1.6",
+    "next-mdx-remote": "^5.0.0",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
