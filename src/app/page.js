@@ -1,3 +1,5 @@
+import Testimonials from '@/components/testimonials';
+
 export default function Home() {
   return (
     <div className="">
@@ -121,6 +123,8 @@ export default function Home() {
           scholarships, and more.
         </p>
       </article>
+
+      <Testimonials />
     </div>
   );
 }

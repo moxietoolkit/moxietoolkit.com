@@ -34,7 +34,7 @@ import {
 } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 import madeWithMoxie from '@/assets/made-with-moxie.png';
-import bgPattern from '@/assets/images/bg-pattern.png';
+import bgPattern from '@/assets/images/bg-pattern.jpg';
 import MadeWithMoxieLogo from '@/components/MadeWithMoxieLogo';
 
 const navigationData = [
@@ -305,7 +305,7 @@ export default function SidebarLayout({ children, navigation }) {
         </div>
 
         <div className="lg:pl-72">
-          <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-xs sm:gap-x-6 sm:px-6 lg:px-8">
+          <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-xs sm:gap-x-6 sm:px-6 lg:px-8 hidden">
             <button
               type="button"
               onClick={() => setSidebarOpen(true)}
@@ -393,7 +393,7 @@ export default function SidebarLayout({ children, navigation }) {
           </div>
 
           <main
-            className="relative py-10 bg-grimwild-light bg-blend-multiply bg-contain"
+            className="relative py-10 min-h-screen bg-grimwild-light bg-blend-multiply bg-[100%_100%] bg-repeat-y"
             style={{ backgroundImage: `url(${bgPattern.src})` }}
           >
             <div className="px-4 sm:px-6 lg:px-8 relative z-10">{children}</div>
