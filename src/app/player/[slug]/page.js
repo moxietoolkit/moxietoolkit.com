@@ -3,62 +3,28 @@ import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import MDXTemplate, { getContent } from '@/components/MDXTemplate';
 
-export default async function Page({ params: paramsPromise }) {
-  const params = await paramsPromise;
-  const { slug } = params;
-
-  try {
-    // Get all files in the directory
-    const contentDir = path.join(
-      process.cwd(),
-      'src/content/1-system/1-player',
-    );
-    const files = await fs.readdir(contentDir);
-
-    // Find the file that ends with `${slug}.mdx`, regardless of its prefix number
-    const matchingFile = files.find((file) =>
-      file.match(new RegExp(`\\d+-${slug}\\.mdx$`)),
-    );
-
-    if (!matchingFile) {
-      throw new Error(`No content found for ${slug}`);
-    }
-
-    // Read the file content to get frontmatter
-    const filePath = path.join(contentDir, matchingFile);
-    const fileContent = await fs.readFile(filePath, 'utf-8');
-    const { data: frontmatter, content } = matter(fileContent);
-
-    return (
-      <div className="max-w-2xl mx-auto">
-        <h1 className="text-5xl font-bold mb-4">{frontmatter.title}</h1>
-        <article className="prose lg:prose-lg max-w-2xl mx-auto">
-          <MDXRemote source={content} />
-        </article>
-      </div>
-    );
-  } catch (error) {
-    console.error('Import error:', error);
-    return <div>Content not found: {error.message}</div>;
-  }
+export default function PlayerPage(props) {
+  return MDXTemplate({
+    ...props,
+    contentPath: 'src/content/1-system/1-player',
+  });
 }
 
-Page.propTypes = {
+PlayerPage.propTypes = {
   params: PropTypes.shape({
     slug: PropTypes.string.isRequired,
   }).isRequired,
 };
 
 export async function generateStaticParams() {
-  // Get all files and extract clean slugs
-  const contentDir = path.join(process.cwd(), 'src/content/1-system/1-player');
-  const files = await fs.readdir(contentDir);
-
+  const files = await fs.readdir(
+    path.join(process.cwd(), 'src/content/1-system/1-player'),
+  );
   return files
     .filter((file) => file.endsWith('.mdx'))
     .map((file) => ({
-      // Extract the slug part without the number prefix and .mdx extension
       slug: file.replace(/^\d+-(.+)\.mdx$/, '$1'),
     }));
 }
