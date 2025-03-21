@@ -19,9 +19,7 @@ import {
   Bars3Icon,
   BellIcon,
   CalendarIcon,
-  ChartPieIcon,
   Cog6ToothIcon,
-  DocumentDuplicateIcon,
   FolderIcon,
   HomeIcon,
   UsersIcon,
@@ -32,36 +30,9 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from '@heroicons/react/20/solid';
-import Image from 'next/image';
-import madeWithMoxie from '@/assets/made-with-moxie.png';
 import bgPattern from '@/assets/images/bg-pattern.jpg';
 import MadeWithMoxieLogo from '@/components/MadeWithMoxieLogo';
-
-const navigationData = [
-  {
-    name: 'Players',
-    href: '#',
-    icon: HomeIcon,
-    current: true,
-    children: [
-      { name: 'Engineering', href: '#' },
-      { name: 'Human Resources', href: '#' },
-      { name: 'Customer Success', href: '#' },
-    ],
-  },
-  { name: 'Gamemasters', href: '#', icon: UsersIcon, current: false },
-  { name: 'Modules', href: '#', icon: FolderIcon, current: false },
-  { name: 'Character Paths', href: '#', icon: CalendarIcon, current: false },
-];
-const teams = [
-  { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
-  { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
-  { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
-];
-const userNavigation = [
-  { name: 'Your profile', href: '#' },
-  { name: 'Sign out', href: '#' },
-];
+import Link from 'next/link';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -125,7 +96,7 @@ export default function SidebarLayout({ children, navigation }) {
                   <ul className="flex flex-1 flex-col gap-y-7">
                     <li>
                       <ul className="-mx-2 space-y-1">
-                        {navigationData.map((item) => (
+                        {/* {navigationData.map((item) => (
                           <li key={item.name}>
                             {!item.children ? (
                               <a
@@ -176,7 +147,7 @@ export default function SidebarLayout({ children, navigation }) {
                               </Disclosure>
                             )}
                           </li>
-                        ))}
+                        ))} */}
                       </ul>
                     </li>
                     <li>
@@ -184,7 +155,7 @@ export default function SidebarLayout({ children, navigation }) {
                         Your teams
                       </div>
                       <ul className="-mx-2 mt-2 space-y-1">
-                        {teams.map((team) => (
+                        {/* {teams.map((team) => (
                           <li key={team.name}>
                             <a
                               href={team.href}
@@ -201,7 +172,7 @@ export default function SidebarLayout({ children, navigation }) {
                               <span className="truncate">{team.name}</span>
                             </a>
                           </li>
-                        ))}
+                        ))} */}
                       </ul>
                     </li>
                     <li className="mt-auto">
@@ -228,7 +199,9 @@ export default function SidebarLayout({ children, navigation }) {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-grimwild-green px-6 pt-6 pb-4">
             <div className="flex h-16 shrink-0 items-center">
-              <MadeWithMoxieLogo className="w-full fill-grimwild-yellow -rotate-2" />
+              <Link href="/">
+                <MadeWithMoxieLogo className="w-full fill-grimwild-yellow -rotate-2" />
+              </Link>
             </div>
             <nav className="flex flex-1 flex-col">
               <ul className="flex flex-1 flex-col gap-y-7">
@@ -376,7 +349,7 @@ export default function SidebarLayout({ children, navigation }) {
                     transition
                     className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 ring-1 shadow-lg ring-gray-900/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
                   >
-                    {userNavigation.map((item) => (
+                    {/* {userNavigation.map((item) => (
                       <MenuItem key={item.name}>
                         <a
                           href={item.href}
@@ -385,7 +358,7 @@ export default function SidebarLayout({ children, navigation }) {
                           {item.name}
                         </a>
                       </MenuItem>
-                    ))}
+                    ))} */}
                   </MenuItems>
                 </Menu>
               </div>
