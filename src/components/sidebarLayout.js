@@ -376,7 +376,7 @@ export default function SidebarLayout({ children, navigation }) {
           </div>
 
           <main
-            className="relative py-10 min-h-screen bg-grimwild-light bg-blend-multiply bg-[100%_100%] bg-repeat-y"
+            className="relative py-10 ps-8 min-h-screen bg-grimwild-light bg-blend-multiply bg-[100%_100%] bg-repeat-y"
             style={{ backgroundImage: `url(${bgPattern.src})` }}
           >
             <div className="px-4 sm:px-6 lg:px-8 relative z-10">{children}</div>
