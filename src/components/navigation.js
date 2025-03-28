@@ -41,25 +41,18 @@ export async function getNavigation() {
   return [
     {
       name: 'Players',
-      href: '#',
-      // icon: HomeIcon,
-      current: true,
+      href: '/player',
       children: playerContent,
     },
     {
       name: 'Gamemasters',
-      href: '#',
-      // icon: UsersIcon,
-      current: false,
+      href: '/gamemaster',
       children: gamemasterContent,
     },
     {
       name: 'Modules',
-      href: '#',
-      // icon: FolderIcon,
-      current: false,
+      href: '/modules',
       children: modulesContent,
     },
-    // ... rest of your navigation items ...
   ];
 }

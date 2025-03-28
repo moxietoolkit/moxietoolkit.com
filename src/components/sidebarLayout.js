@@ -207,55 +207,65 @@ export default function SidebarLayout({ children, navigation }) {
               <ul className="flex flex-1 flex-col gap-y-7">
                 <li>
                   <ul className="-mx-2">
-                    {navigation.map((item) => (
-                      <li key={item.name}>
-                        {!item.children ? (
-                          <a
-                            href={item.href}
-                            className={classNames(
-                              item.current ? '' : '',
-                              'block rounded-md py-2 pr-2 pl-10 text-2xl font-semibold text-white',
-                            )}
-                          >
-                            {item.name}
-                          </a>
-                        ) : (
-                          <Disclosure as="div">
-                            <DisclosureButton
+                    {navigation.map((item) => {
+                      const isActivePath =
+                        item.current ||
+                        (item.children &&
+                          item.children.some((child) => child.current));
+                      return (
+                        <li key={item.name}>
+                          {!item.children ? (
+                            <a
+                              href={item.href}
                               className={classNames(
-                                item.current ? '' : '',
-                                'group flex w-full items-center gap-x-3 rounded-md p-4 text-left text-2xl font-semibold text-white/90 leading-none hover:bg-grimwild-green-dark hover:text-white transition-colors duration-150',
+                                item.current
+                                  ? 'bg-grimwild-green-dark text-white'
+                                  : 'text-white/90',
+                                'block rounded-md py-2 pr-2 pl-10 text-2xl font-semibold hover:bg-grimwild-green-dark hover:text-white transition-colors duration-150',
                               )}
                             >
                               {item.name}
-                              <ChevronRightIcon
-                                aria-hidden="true"
-                                className="size-5 shrink-0 text-grimwild-yellow group-data-open:rotate-90 
-                                transition-all duration-150 group-data-open:text-grimwild-yellow"
-                              />
-                            </DisclosureButton>
-                            <DisclosurePanel as="ul" className="mt-1 px-2">
-                              {item.children.map((subItem) => (
-                                <li key={subItem.name}>
-                                  <DisclosureButton
-                                    as="a"
-                                    href={subItem.href}
-                                    className={classNames(
-                                      subItem.current
-                                        ? 'bg-gray-50'
-                                        : 'hover:bg-gray-50',
-                                      'block rounded-md px-4 py-2 text-lg text-white/90 leading-tight hover:bg-grimwild-green-dark hover:text-white transition-colors duration-150',
-                                    )}
-                                  >
-                                    {subItem.name}
-                                  </DisclosureButton>
-                                </li>
-                              ))}
-                            </DisclosurePanel>
-                          </Disclosure>
-                        )}
-                      </li>
-                    ))}
+                            </a>
+                          ) : (
+                            <Disclosure as="div" defaultOpen={isActivePath}>
+                              <DisclosureButton
+                                className={classNames(
+                                  isActivePath
+                                    ? 'bg-grimwild-green-dark text-white'
+                                    : 'text-white/90',
+                                  'group flex w-full items-center gap-x-3 rounded-md p-4 text-left text-2xl font-semibold leading-none hover:bg-grimwild-green-dark hover:text-white transition-colors duration-150',
+                                )}
+                              >
+                                {item.name}
+                                <ChevronRightIcon
+                                  aria-hidden="true"
+                                  className="size-5 shrink-0 text-grimwild-yellow group-data-open:rotate-90 
+                                  transition-all duration-150 group-data-open:text-grimwild-yellow"
+                                />
+                              </DisclosureButton>
+                              <DisclosurePanel as="ul" className="mt-1 px-2">
+                                {item.children.map((subItem) => (
+                                  <li key={subItem.name}>
+                                    <DisclosureButton
+                                      as="a"
+                                      href={subItem.href}
+                                      className={classNames(
+                                        subItem.current
+                                          ? 'bg-grimwild-green-dark text-white'
+                                          : 'text-white/90',
+                                        'block rounded-md px-4 py-1 text-lg leading-tight hover:bg-grimwild-green-dark hover:text-white transition-colors duration-150',
+                                      )}
+                                    >
+                                      {subItem.name}
+                                    </DisclosureButton>
+                                  </li>
+                                ))}
+                              </DisclosurePanel>
+                            </Disclosure>
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </li>
               </ul>
