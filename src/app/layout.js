@@ -1,7 +1,7 @@
 import './globals.css';
 import PropTypes from 'prop-types';
 import Fathom from '../utils/fathom';
-import SidebarLayout from '../components/sidebarLayout';
+import NavigationWrapper from '../components/NavigationWrapper';
 import { getNavigation } from '../components/navigation';
 
 export const metadata = {
@@ -16,7 +16,9 @@ export default async function RootLayout({ children }) {
     <html lang="en" className="h-full">
       <body className="antialiased bg-grimwild-light text-grimwild-dark h-full">
         <Fathom />
-        <SidebarLayout navigation={navigation}>{children}</SidebarLayout>
+        <NavigationWrapper navigation={navigation}>
+          {children}
+        </NavigationWrapper>
       </body>
     </html>
   );
