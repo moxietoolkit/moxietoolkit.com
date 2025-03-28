@@ -66,6 +66,21 @@ export default async function MDXTemplate({
             {frontmatter.title}
           </h1>
           <RuleDivider className="w-full text-grimwild-green-light mt-2" />
+          <p className="text-sm mt-2 text-grimwild-dark uppercase font-bold">
+            Sourcebook:{' '}
+            {frontmatter.sourcebook === 'Grimwild' ? (
+              <a
+                href="https://www.drivethrurpg.com/en/product/508618/grimwild-cinematic-fantasy-roleplaying?affiliate_id=144937"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-grimwild-green-light transition-colors"
+              >
+                {frontmatter.sourcebook}
+              </a>
+            ) : (
+              frontmatter.sourcebook
+            )}
+          </p>
         </div>
         <article className="prose lg:prose-lg xl:prose-xl prose-zinc prose-p:leading-snug prose-li:leading-snug prose-headings:text-grimwild-green prose-li:marker:text-grimwild-green-light max-w-none">
           <MDXRemote source={content} />
