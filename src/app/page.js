@@ -1,9 +1,8 @@
 import Testimonials from '@/components/testimonials';
-import MadeWithMoxieLogo from '@/components/MadeWithMoxieLogo';
 import MadeWithMoxieLogoBlack from '@/components/MadeWithMoxieLogoBlack';
-import RuleDivider from '@/components/RuleDivider';
 import grimwildCover from '@/assets/images/grimwildCover.webp';
 import Image from 'next/image';
+import clsx from 'clsx';
 
 const promoSections = [
   {
@@ -64,15 +63,15 @@ const promoSections = [
 export default function Home() {
   return (
     <div>
-      <section className="flex flex-col gap-y-2 items-center justify-center pt-32 text-grimwild-dark mb-16">
-        <MadeWithMoxieLogoBlack className="w-[400px] h-auto mb-8  -rotate-2" />
-        <h1 className="text-6xl font-bold text-grimwild-green tracking-tight">
+      <section className="flex flex-col gap-y-2 items-center justify-center pt-16 lg:pt-32 text-grimwild-dark mb-16 text-center">
+        <MadeWithMoxieLogoBlack className="lg:w-[400px] w-[300px] h-auto mb-8  -rotate-2" />
+        <h1 className="md:text-6xl text-5xl text-balance font-bold text-grimwild-green tracking-tight">
           Made with Moxie Toolkit
         </h1>
-        <h2 className="text-4xl italic">
+        <h2 className="md:text-4xl text-3xl text-balance italic">
           Enter a World Where Fantasy Meets Cinematic Action
         </h2>
-        <p className="text-xl max-w-3xl mt-4 text-center">
+        <p className="text-lg md:text-xl max-w-3xl mt-4">
           Moxie is a tabletop RPG designed for players who crave storytelling
           packed with drama, suspense, and breathtaking action. Immerse yourself
           in epic narratives, dynamic combat, and vivid character-driven scenes
@@ -81,9 +80,9 @@ export default function Home() {
       </section>
 
       <section>
-        <div className="flex flex-row gap-x-8 divide-x divide-grimwild-green-light/50">
+        <div className="flex flex-col md:flex-row gap-8 md:divide-x md:divide-grimwild-green-light/50">
           {promoSections.map((section) => (
-            <div className="pe-8 text-lg leading-tight">
+            <div className="md:pe-8 text-lg leading-tight">
               <h2 className="text-3xl text-balance font-bold leading-none text-grimwild-green-light mb-4">
                 {section.title}
               </h2>
@@ -118,14 +117,20 @@ export default function Home() {
       </section>
 
       <section>
-        <div className="bg-grimwild-green text-white/90 p-6 rounded-lg my-32 max-w-3xl mx-auto">
+        <div className="bg-grimwild-green text-white/90 p-6 rounded-lg my-16 md:my-32 max-w-3xl mx-auto">
           <Image
             src={grimwildCover}
             alt="Grimwild Cover"
-            className="w-[200px] -rotate-2 -ms-12 -mt-12 me-8 border-2 border-grimwild-green/30 float-left"
+            className={clsx(
+              'border-2 border-grimwild-green/30',
+              'w-[130px] -rotate-2 float-right -me-8 -mt-10 ms-6 mb-4',
+              'md:w-[200px] md:-ms-12 md:-mt-12 md:me-8 md:float-left',
+            )}
           />
           <div>
-            <h2 className="text-4xl font-bold mb-4">Grimwild RPG</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Grimwild RPG
+            </h2>
             <p className="text-lg leading-tight mb-8">
               The moxie toolkit is based on the Grimwild, a cinematic,
               narrative-driven RPG.
