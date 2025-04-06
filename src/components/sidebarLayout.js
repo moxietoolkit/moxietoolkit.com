@@ -218,10 +218,10 @@ export default function SidebarLayout({ children, navigation }) {
                             <a
                               href={item.href}
                               className={classNames(
-                                item.current
+                                isActivePath
                                   ? 'bg-grimwild-green-dark text-white'
                                   : 'text-white/90',
-                                'block rounded-md py-2 pr-2 pl-10 text-2xl font-semibold hover:bg-grimwild-green-dark hover:text-white transition-colors duration-150',
+                                'group flex w-full items-center gap-x-3 rounded-md p-4 text-left text-2xl font-semibold leading-none hover:bg-grimwild-green-dark hover:text-white transition-colors duration-150',
                               )}
                             >
                               {item.name}
