@@ -2,6 +2,8 @@ import Testimonials from '@/components/testimonials';
 import MadeWithMoxieLogo from '@/components/MadeWithMoxieLogo';
 import MadeWithMoxieLogoBlack from '@/components/MadeWithMoxieLogoBlack';
 import RuleDivider from '@/components/RuleDivider';
+import grimwildCover from '@/assets/images/grimwildCover.webp';
+import Image from 'next/image';
 
 const promoSections = [
   {
@@ -64,7 +66,9 @@ export default function Home() {
     <div>
       <section className="flex flex-col gap-y-2 items-center justify-center pt-32 text-grimwild-dark mb-16">
         <MadeWithMoxieLogoBlack className="w-[400px] h-auto mb-8  -rotate-2" />
-        <h1 className="text-6xl font-bold">Made with Moxie Toolkit</h1>
+        <h1 className="text-6xl font-bold text-grimwild-green tracking-tight">
+          Made with Moxie Toolkit
+        </h1>
         <h2 className="text-4xl italic">
           Enter a World Where Fantasy Meets Cinematic Action
         </h2>
@@ -76,7 +80,7 @@ export default function Home() {
         </p>
       </section>
 
-      <article className="">
+      <section>
         <div className="flex flex-row gap-x-8 divide-x divide-grimwild-green-light/50">
           {promoSections.map((section) => (
             <div className="pe-8 text-lg leading-tight">
@@ -111,7 +115,38 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </article>
+      </section>
+
+      <section>
+        <div className="bg-grimwild-green text-white/90 p-6 rounded-lg my-32 max-w-3xl mx-auto">
+          <Image
+            src={grimwildCover}
+            alt="Grimwild Cover"
+            className="w-[200px] -rotate-2 -ms-12 -mt-12 me-8 border-2 border-grimwild-green/30 float-left"
+          />
+          <div>
+            <h2 className="text-4xl font-bold mb-4">Grimwild RPG</h2>
+            <p className="text-lg leading-tight mb-8">
+              The moxie toolkit is based on the Grimwild, a cinematic,
+              narrative-driven RPG.
+            </p>
+            <div className="flex flex-row gap-4">
+              <a
+                href="https://www.drivethrurpg.com/product/445800/Grimwild"
+                className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold"
+              >
+                DriveThruRPG
+              </a>
+              <a
+                href="https://moxiecode.itch.io/grimwild"
+                className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold"
+              >
+                Itch.io
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Testimonials />
     </div>

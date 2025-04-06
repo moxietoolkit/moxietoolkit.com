@@ -58,5 +58,9 @@ export async function getNavigation() {
       name: 'Actual Play',
       href: '/actual-play',
     },
+    {
+      name: 'Products',
+      href: '/products',
+    },
   ];
 }
