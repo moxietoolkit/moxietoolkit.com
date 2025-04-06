@@ -58,14 +58,14 @@ const testimonials = [
 
 export default function Example() {
   return (
-    <div className="py-24 sm:py-32">
+    <div className="mb-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-base/7 font-semibold text-indigo-600">
+          <h2 className="text-lg/7 font-semibold text-grimwild-green uppercase">
             Testimonials
           </h2>
-          <p className="mt-2 text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">
-            We have worked with thousands of amazing people
+          <p className="mt-2 text-4xl font-semibold tracking-tight text-balance text-grimwild-green sm:text-5xl">
+            They played it—and here’s what they said
           </p>
         </div>
         <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
@@ -75,7 +75,7 @@ export default function Example() {
                 key={testimonial.author.handle}
                 className="pt-8 sm:inline-block sm:w-full sm:px-4"
               >
-                <figure className="rounded-2xl bg-gray-50 p-8 text-sm/6">
+                <figure className="rounded-2xl bg-grimwild-yellow/50 p-8 text-lg/6">
                   <blockquote className="text-gray-900">
                     <p>{`“${testimonial.body}”`}</p>
                   </blockquote>
