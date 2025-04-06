@@ -54,5 +54,9 @@ export async function getNavigation() {
       href: '/modules',
       children: modulesContent,
     },
+    {
+      name: 'Actual Play',
+      href: '/actual-play',
+    },
   ];
 }
