@@ -1,8 +1,4 @@
 import PropTypes from 'prop-types';
-import fs from 'fs/promises';
-import path from 'path';
-import matter from 'gray-matter';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import MDXTemplate, {
   generateStaticParamsFromDir,
 } from '@/components/MDXTemplate';

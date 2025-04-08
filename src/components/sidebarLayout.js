@@ -6,38 +6,17 @@ import {
   Dialog,
   DialogBackdrop,
   DialogPanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
   TransitionChild,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
 } from '@headlessui/react';
 import {
   Bars3Icon,
-  BellIcon,
-  CalendarIcon,
   Cog6ToothIcon,
-  FolderIcon,
-  HomeIcon,
-  UsersIcon,
   XMarkIcon,
-  ChevronRightIcon,
 } from '@heroicons/react/24/outline';
-import {
-  ChevronDownIcon,
-  MagnifyingGlassIcon,
-} from '@heroicons/react/20/solid';
 import bgPattern from '@/assets/images/bg-pattern.jpg';
 import MadeWithMoxieLogo from '@/components/MadeWithMoxieLogo';
 import Link from 'next/link';
 import PrimaryNav from '@/components/primaryNav';
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
 
 export default function SidebarLayout({ children, navigation }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
