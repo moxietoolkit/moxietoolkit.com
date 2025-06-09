@@ -89,7 +89,10 @@ export default function Home() {
               {section.content.type === 'list' ? (
                 <ul className="list-disc space-y-4 pl-4">
                   {section.content.items.map((item) => (
-                    <li className="marker:text-grimwild-yellow-dark">
+                    <li
+                      className="marker:text-grimwild-yellow-dark"
+                      key={item.heading}
+                    >
                       <strong>{item.heading}</strong>: {item.text}
                     </li>
                   ))}
