@@ -75,11 +75,13 @@ export default function SidebarLayout({ children, navigation }) {
           </Link>
         </div>
 
-        <main
-          className="relative py-6 md:py-10 min-h-screen bg-grimwild-light bg-blend-multiply bg-[100%_100%] bg-repeat-y"
-          style={{ backgroundImage: `url(${bgPattern.src})` }}
-        >
-          <div className="px-8 relative z-10">{children}</div>
+        <main className="relative bg-grimwild-light @container">
+          <div
+            className="relative py-6 md:py-10 min-h-screen bg-grimwild-light bg-blend-multiply bg-[100%_100%] bg-repeat-y @xl:bg-cover"
+            style={{ backgroundImage: `url(${bgPattern.src})` }}
+          >
+            <div className="px-8 relative z-10">{children}</div>
+          </div>
         </main>
       </div>
     </div>
