@@ -1,6 +1,0 @@
-- name: Healer
-  type: basic
-  path: cleric
-  sourcebook: Grimwild
-  description: |
-    You take +1d when you heal someone, with magic or treatment. On a critical, both of you **take spark**.
