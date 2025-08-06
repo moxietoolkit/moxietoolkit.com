@@ -87,6 +87,11 @@ export default function PrimaryNav({ navigation }) {
       <nav className="mt-auto text-white">
         <ul className="flex flex-row gap-x-2">
           <li>
+            <a href="/contact" className="hover:underline">
+              <span>Contact Us</span>
+            </a>
+          </li>
+          <li>
             <a href="/licensing" className="hover:underline">
               <span>Licensing</span>
             </a>
