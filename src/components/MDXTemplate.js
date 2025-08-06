@@ -4,6 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import RuleDivider from './RuleDivider';
+import remarkGfm from 'remark-gfm';
 
 export async function getContent(contentPath, slug) {
   try {
@@ -83,7 +84,14 @@ export default async function MDXTemplate({
           </p>
         </div>
         <article className="prose lg:prose-lg xl:prose-xl prose-h3:text-2xl prose-zinc prose-p:leading-snug prose-li:leading-snug prose-headings:text-grimwild-green prose-li:marker:text-grimwild-green-light max-w-none">
-          <MDXRemote source={content} />
+          <MDXRemote
+            source={content}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm]
+              }
+            }}
+          />
         </article>
       </div>
     );
