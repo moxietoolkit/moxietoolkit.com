@@ -140,23 +140,21 @@ export default function Home() {
             </p>
             <div className="flex flex-row gap-4">
               <a
-                href="https://www.drivethrurpg.com/product/445800/Grimwild"
-                className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold"
+                href="https://www.drivethrurpg.com/en/product/508618/grimwild-cinematic-fantasy-roleplaying?affiliate_id=144937" className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold"
               >
                 DriveThruRPG
-              </a>
-              <a
-                href="https://moxiecode.itch.io/grimwild"
-                className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold"
-              >
-                Itch.io
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      <Testimonials />
+      <section className="flex flex-col gap-y-2 items-center justify-center pt-8 lg:pt-8 text-grimwild-dark mb-16 text-center border-t border-solid border-grimwild-green-light/50">
+        <h2>Made with ❤️ by <a href="https://amazingrando.com">Amazing Rando</a></h2>
+
+      </section>
+
+      {/* <Testimonials /> */}
     </div>
   );
 }
