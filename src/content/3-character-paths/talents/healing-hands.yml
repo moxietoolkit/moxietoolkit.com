@@ -1,0 +1,6 @@
+- name: Healing Hands
+  type: basic
+  path: monk
+  sourcebook: Grimwild
+  description: |
+    You can heal an ally that is bloodied. This automatically works, but you must make a Presence defense roll against being bloodied—you take their pain onto yourself and must fend it off.
