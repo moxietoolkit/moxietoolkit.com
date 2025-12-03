@@ -59,7 +59,7 @@ export default function PrimaryNav({ navigation }) {
                         </DisclosureButton>
                         <DisclosurePanel as="ul" className="mt-1 px-2">
                           {item.children.map((subItem) => (
-                            <li key={subItem.name}>
+                            <li key={`${item.href}-${subItem.href}`}>
                               <DisclosureButton
                                 as="a"
                                 href={subItem.href}

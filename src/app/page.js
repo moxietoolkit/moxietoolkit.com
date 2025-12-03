@@ -82,7 +82,7 @@ export default function Home() {
       <section>
         <div className="flex flex-col md:flex-row gap-8 md:divide-x md:divide-grimwild-green-light/50">
           {promoSections.map((section) => (
-            <div className="md:pe-8 text-lg leading-tight">
+            <div key={section.title} className="md:pe-8 text-lg leading-tight">
               <h2 className="text-3xl text-balance font-bold leading-none text-grimwild-green-light mb-4">
                 {section.title}
               </h2>
@@ -102,7 +102,7 @@ export default function Home() {
                   <p>{section.content.text}</p>
                   <ul className="list-disc space-y-4 pl-4 mt-4">
                     {section.content.links.map((item) => (
-                      <li className="marker:text-grimwild-yellow-dark">
+                      <li key={item.href} className="marker:text-grimwild-yellow-dark">
                         <a
                           href={item.href}
                           className="underline decoration-solid underline-offset-4 decoration-grimwild-yellow-dark"
