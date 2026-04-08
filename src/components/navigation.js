@@ -54,6 +54,14 @@ export async function getNavigation() {
       href: '/modules',
       children: modulesContent,
     },
+    {
+      name: 'Community Edition',
+      href: '/community-edition',
+    },
+    {
+      name: 'Discord',
+      href: 'https://discord.gg/2mpHtdHKFJ',
+    },
     // {
     //   name: 'Actual Play',
     //   href: '/actual-play',
