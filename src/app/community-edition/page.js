@@ -1,6 +1,31 @@
 import RuleDivider from '@/components/RuleDivider';
 
 export default function CommunityEditionPage() {
+  const previewLinks = {
+    one: [
+      { href: '/downloads/GWCE-Preview-1.pdf', label: 'Preview 1' },
+      {
+        href: '/downloads/GWCE-Preview-1-Spreads.pdf',
+        label: 'Preview 1 (Spreads)',
+      },
+      {
+        href: '/downloads/GWCE-Preview-1-Character-Sheets.pdf',
+        label: 'Preview 1 Character Sheets',
+      },
+    ],
+    two: [
+      { href: '/downloads/GWCE-Preview-2-Pages.pdf', label: 'Preview 2' },
+      {
+        href: '/downloads/GWCE-Preview-2-Spreads.pdf',
+        label: 'Preview 2 (Spreads)',
+      },
+      {
+        href: '/downloads/GWCE-Preview-2-Character-Sheets.pdf',
+        label: 'Preview 2 Character Sheets',
+      },
+    ],
+  };
+
   return (
     <div className="space-y-8">
       <div>
@@ -22,37 +47,35 @@ export default function CommunityEditionPage() {
           </p>
 
           <ul className="list-none flex flex-row gap-4 p-0!">
-            <li>
-              <a
-                href="/downloads/GWCE-Preview-1.pdf"
-                className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold no-underline"
-              >
-                Preview 1
-              </a>
-            </li>
-            <li>
-              <a
-                href="/downloads/GWCE-Preview-1-Spreads.pdf"
-                className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold no-underline"
-              >
-                Preview 1 (Spreads)
-              </a>
-            </li>
-            <li>
-              <a
-                href="/downloads/GWCE-Preview-1-Character-Sheets.pdf"
-                className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold no-underline"
-              >
-                Preview 1 Character Sheets
-              </a>
-            </li>
+            {previewLinks.two.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold no-underline"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <p>Previous previews:</p>
+
+          <ul className="list-none p-0! m-0!">
+            {previewLinks.one.map((link) => (
+              <li key={link.href} className="m-0! p-0!">
+                <a href={link.href} className="text-base">
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
 
           <h2>Changes</h2>
           <h3>General</h3>
           <ul>
             <li>Chapters reordered.</li>
-            <li>Overall clarity and guidance expanded.</li>
+            <li>Overall clarity and guidance.</li>
           </ul>
 
           <h3>Chapter 1: Gameplay</h3>
@@ -71,7 +94,7 @@ export default function CommunityEditionPage() {
               different, but related action.
             </li>
             <li>
-              Any pool dropping odd gains a secondary effect, or the PC can push
+              Any pool dropping 0d gains a secondary effect, or the PC can push
               themselves to drop 1d (not just on a 1d initial pool).
             </li>
             <li>
@@ -90,8 +113,11 @@ export default function CommunityEditionPage() {
               end.
             </li>
             <li>Treatment does not always carry risk, though often does.</li>
-            <li>Potency is connected to vantage.</li>
-            <li>No longer always removes all thorns.</li>
+            <li>
+              Potency is connected to vantage, no longer always removes all
+              thorns.
+            </li>
+            <li>Changes</li>
             <li>Cantrips have been removed.</li>
             <li>
               Spells without risk are automatically successful and require no
@@ -117,7 +143,7 @@ export default function CommunityEditionPage() {
 
           <h3>Chapter 2: Adventurers</h3>
           <ul>
-            <li>Backgrounds expanded.</li>
+            <li>Backgrounds.</li>
             <li>Heritage talent suggestions added.</li>
             <li>Investigator added as a background.</li>
             <li>Background talents added.</li>
