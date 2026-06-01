@@ -14,4 +14,3 @@ export default function GamemasterPage(props) {
 
 export const generateStaticParams = () =>
   generateStaticParamsFromDir(CONTENT_PATH);
-export const dynamicParams = true;

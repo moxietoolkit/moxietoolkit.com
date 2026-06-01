@@ -21,4 +21,3 @@ PlayerPage.propTypes = {
 
 export const generateStaticParams = () =>
   generateStaticParamsFromDir(CONTENT_PATH);
-export const dynamicParams = true;

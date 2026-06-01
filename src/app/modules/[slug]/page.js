@@ -14,4 +14,3 @@ export default function ModulesPage(props) {
 
 export const generateStaticParams = () =>
   generateStaticParamsFromDir(CONTENT_PATH);
-export const dynamicParams = true;
