@@ -46,6 +46,28 @@ export default function CommunityEditionPage() {
         label: 'Preview 3 Spreads',
       },
     ],
+    four: [
+      {
+        href: '/downloads/GWCE-Preview-4-CE-Change-Log.pdf',
+        label: 'Preview 4 CE Change Log',
+      },
+      {
+        href: '/downloads/GWCE-Preview-4-Character-Sheets.pdf',
+        label: 'Preview 4 Character Sheets',
+      },
+      {
+        href: '/downloads/GWCE-Preview-4-Pages.pdf',
+        label: 'Preview 4 Pages',
+      },
+      {
+        href: '/downloads/GWCE-Preview-4-Player-Options-Sheets.pdf',
+        label: 'Preview 4 Player Options Sheets',
+      },
+      {
+        href: '/downloads/GWCE-Preview-4-Spreads.pdf',
+        label: 'Preview 4 Spreads',
+      },
+    ],
   };
 
   return (
@@ -69,7 +91,7 @@ export default function CommunityEditionPage() {
           </p>
 
           <ul className="list-none flex flex-wrap gap-x-2 gap-y-2 p-0! max-w-full">
-            {previewLinks.three.map((link) => (
+            {previewLinks.four.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
@@ -83,7 +105,7 @@ export default function CommunityEditionPage() {
 
           <p>Previous previews:</p>
 
-          <ul className="list-none p-0! m-0!">
+          <ul className="list-none p-0! m-0! mb-4!">
             {previewLinks.one.map((link) => (
               <li key={link.href} className="m-0! p-0!">
                 <a href={link.href} className="text-base">
@@ -91,7 +113,18 @@ export default function CommunityEditionPage() {
                 </a>
               </li>
             ))}
+          </ul>
+          <ul className="list-none p-0! m-0! mb-4!">
             {previewLinks.two.map((link) => (
+              <li key={link.href} className="m-0! p-0!">
+                <a href={link.href} className="text-base">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ul className="list-none p-0! m-0! mb-4!">
+            {previewLinks.three.map((link) => (
               <li key={link.href} className="m-0! p-0!">
                 <a href={link.href} className="text-base">
                   {link.label}
@@ -128,6 +161,7 @@ export default function CommunityEditionPage() {
               themselves to drop 1d (not just on a 1d initial pool).
             </li>
             <li>Push Yourself always gives a mark.</li>
+            <li>Story (meta-currency) renamed Thread.</li>
             <li>
               Harm clarified as the standard weight of an impact move, not the
               default. Additional harm suggestions added.
@@ -174,6 +208,10 @@ export default function CommunityEditionPage() {
 
           <h3>Chapter 2: Adventurers</h3>
           <ul>
+            <li>
+              Party concepts updated: added Merchants and Scholars, cut Avengers
+              and Vassals.
+            </li>
             <li>Heritage talent suggestions added.</li>
             <li>Investigator added as a background.</li>
             <li>Background talents added.</li>
@@ -188,7 +226,7 @@ export default function CommunityEditionPage() {
                 <li>Changed Jack of All Trades.</li>
               </ul>
             </li>
-            <li>Berserker path talent War Songs replaced with Warcry.</li>
+            <li>Berserker path talents War Songs replaced with Warcry.</li>
             <li>
               Clerics cast with rite pools instead of domain pools, and have had
               their growth increased.
@@ -204,6 +242,8 @@ export default function CommunityEditionPage() {
                 <li>
                   Removed Verdant Whispers (effects added to Kindred Spirits).
                 </li>
+                <li>Added Augury.</li>
+                <li>Changed Primordial Bonds, renamed Primordial Forces.</li>
               </ul>
             </li>
             <li>
@@ -257,6 +297,8 @@ export default function CommunityEditionPage() {
                 <li>Added Affliction.</li>
                 <li>Slight buff to Knowing Gaze.</li>
                 <li>Changed Visions and Wayfarer.</li>
+                <li>Ritualist renamed to Blood Rituals, slight buff.</li>
+                <li>Eldritch Weaponry renamed to Magus, reworked.</li>
               </ul>
             </li>
             <li>
@@ -285,7 +327,6 @@ export default function CommunityEditionPage() {
             <li>
               Suspense moves cut to Resolve, Foreshadow, Build Up, and Clue In.
             </li>
-            <li>Build Up can be used to introduce Challenges.</li>
             <li>
               Impact moves cut to Complicate Things, Hit Hard, Lock Down, and
               Counter.
@@ -297,20 +338,22 @@ export default function CommunityEditionPage() {
             <li>The Marauder and Overseer monster roles were removed.</li>
           </ul>
 
-          <h3>Chapter 4: Exploration (New)</h3>
+          <h3>Chapter 4: Exploration</h3>
           <ul>
             <li>
               All points of interest, paths, buildings, and rooms are explained.
             </li>
             <li>Repeated words on crucibles were replaced.</li>
+            <li>Expanded to include Downtime rules.</li>
           </ul>
 
-          <h3>Chapter 5: Monsters (New)</h3>
+          <h3>Chapter 5: Monsters</h3>
           <ul>
             <li>The occasional monster role has been updated.</li>
+            <li>Added the Kraken, Land Shark, and Mephit.</li>
           </ul>
 
-          <h3>Chapter 6: Player Options (New)</h3>
+          <h3>Chapter 6: Player Options</h3>
           <ul>
             <li>
               The Psion core talent has been replaced, with many path talent
@@ -324,16 +367,28 @@ export default function CommunityEditionPage() {
               The Summoner, Swashbuckler, and Witch have been added as new path
               options.
             </li>
-            <li>
-              Legacy talents, those cut from previous editions, were added.
-            </li>
+            <li>Legacy talents, those cut from previous editions added.</li>
           </ul>
 
-          <h3>Chapter 7: Game Options (New)</h3>
+          <h3>Chapter 7: Game Options</h3>
           <ul>
             <li>Setting Dials added.</li>
             <li>Optional Rules added.</li>
             <li>Flavors of Fantasy expanded to one page each.</li>
+            <li>
+              Story Kit Explanation added, with full kits moved to printable
+              sheets.
+            </li>
+            <li>Expanded solo play rules.</li>
+          </ul>
+
+          <h3>Chapter 8: Extras</h3>
+          <ul>
+            <li>Hex Flowers added as GM Tool.</li>
+            <li>Story Kit Explanation added.</li>
+            <li>Expanded solo play rules added.</li>
+            <li>List of Arcana added.</li>
+            <li>Random Potion Generator updated from 1.4.</li>
           </ul>
         </div>
       </div>
