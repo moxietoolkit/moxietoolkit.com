@@ -23,12 +23,15 @@
     "fathom-client": "^3.7.2",
     "gray-matter": "^4.0.3",
     "moxietoolkit": "github:moxietoolkit/srd",
-    "next": "16.0.7",
-    "next-mdx-remote": "^5.0.0",
+    "next": "^16.2.9",
+    "next-mdx-remote": "^6.0.0",
     "prop-types": "^15.8.1",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "remark-gfm": "^4.0.1"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -37,12 +40,12 @@
     "@tailwindcss/typography": "^0.5.19",
     "baseline-browser-mapping": "^2.10.33",
     "eslint": "^9.39.1",
-    "eslint-config-next": "16.0.7",
+    "eslint-config-next": "^16.2.9",
     "eslint-config-wesbos": "^4.3.2",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.5.0",
-    "postcss": "^8",
+    "postcss": "^8.5.10",
     "tailwindcss": "^4.1.17"
   }
 }
