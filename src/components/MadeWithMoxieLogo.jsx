@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default function MadeWithMoxieLogo({ className }) {
+export default function MadeWithMoxieLogo({ className, decorative }) {
   return (
     <svg
       id="Layer_1"
@@ -9,6 +9,8 @@ export default function MadeWithMoxieLogo({ className }) {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 100.6 26.17"
       className={className}
+      aria-hidden={decorative ? 'true' : undefined}
+      focusable={decorative ? 'false' : undefined}
     >
       <g clipPath="url(#clip0_15_2)">
         <path
@@ -98,8 +100,10 @@ export default function MadeWithMoxieLogo({ className }) {
 
 MadeWithMoxieLogo.defaultProps = {
   className: '',
+  decorative: false,
 };
 
 MadeWithMoxieLogo.propTypes = {
   className: PropTypes.string,
+  decorative: PropTypes.bool,
 };

@@ -8,21 +8,24 @@ import {
   DialogPanel,
   TransitionChild,
 } from '@headlessui/react';
-import {
-  Bars3Icon,
-  Cog6ToothIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import bgPattern from '@/assets/images/bg-pattern.jpg';
 import MadeWithMoxieLogo from '@/components/MadeWithMoxieLogo';
 import Link from 'next/link';
 import PrimaryNav from '@/components/primaryNav';
+
+const interactiveFocusClass =
+  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grimwild-yellow';
 
 export default function SidebarLayout({ children, navigation }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       <Dialog
         open={sidebarOpen}
         onClose={setSidebarOpen}
@@ -43,7 +46,7 @@ export default function SidebarLayout({ children, navigation }) {
                 <button
                   type="button"
                   onClick={() => setSidebarOpen(false)}
-                  className="-m-2.5 p-2.5"
+                  className={`-m-2.5 p-2.5 ${interactiveFocusClass}`}
                 >
                   <span className="sr-only">Close sidebar</span>
                   <XMarkIcon aria-hidden="true" className="size-6 text-white" />
@@ -61,21 +64,31 @@ export default function SidebarLayout({ children, navigation }) {
       </div>
 
       <div className="lg:pl-72">
-        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-grimwild-green px-4 shadow-xs sm:gap-x-6 sm:px-6 lg:px-8 lg:hidden">
+        <header className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-grimwild-green px-4 shadow-xs sm:gap-x-6 sm:px-6 lg:px-8 lg:hidden">
           <button
             type="button"
             onClick={() => setSidebarOpen(true)}
-            className="-m-2.5 p-2.5 text-grimwild-yellow lg:hidden"
+            className={`-m-2.5 p-2.5 text-grimwild-yellow lg:hidden ${interactiveFocusClass}`}
           >
             <span className="sr-only">Open sidebar</span>
             <Bars3Icon aria-hidden="true" className="size-8" />
           </button>
-          <Link href="/">
-            <MadeWithMoxieLogo className="w-[150px] h-auto fill-grimwild-yellow" />
+          <Link
+            href="/"
+            aria-label="Moxie Toolkit home"
+            className={interactiveFocusClass}
+          >
+            <MadeWithMoxieLogo
+              className="w-[150px] h-auto fill-grimwild-yellow"
+              decorative
+            />
           </Link>
-        </div>
+        </header>
 
-        <main className="relative bg-grimwild-light @container">
+        <main
+          id="main-content"
+          className="relative bg-grimwild-light @container"
+        >
           <div
             className="relative py-6 md:py-10 min-h-screen bg-grimwild-light bg-blend-multiply bg-[100%_100%] bg-repeat-y @xl:bg-cover"
             style={{ backgroundImage: `url(${bgPattern.src})` }}

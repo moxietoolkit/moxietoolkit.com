@@ -1,4 +1,9 @@
 import RuleDivider from '@/components/RuleDivider';
+import ExternalLink from '@/components/ExternalLink';
+
+export const metadata = {
+  title: 'Licensing | Moxie Toolkit',
+};
 
 export default function LicensingPage() {
   return (
@@ -16,9 +21,9 @@ export default function LicensingPage() {
         </p>
         <p>
           For licensing details, visit{' '}
-          <a href="https://www.odditypress.com/licensing">
+          <ExternalLink href="https://www.odditypress.com/licensing">
             odditypress.com/licensing
-          </a>
+          </ExternalLink>
         </p>
       </article>
     </div>

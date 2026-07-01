@@ -1,8 +1,13 @@
-import Testimonials from '@/components/testimonials';
 import MadeWithMoxieLogoBlack from '@/components/MadeWithMoxieLogoBlack';
+import ExternalLink from '@/components/ExternalLink';
 import grimwildCover from '@/assets/images/grimwildCover.webp';
 import Image from 'next/image';
 import clsx from 'clsx';
+
+export const metadata = {
+  title: 'Moxie Toolkit',
+  description: "Rules and more for games 'Made with Moxie'",
+};
 
 const promoSections = [
   {
@@ -48,12 +53,9 @@ const promoSections = [
       text: 'Become part of our vibrant community of players and storytellers. Share your stories, find games, and embark on unforgettable adventures.',
       links: [
         {
-          text: 'Watch Actual Play Videos',
-          href: '#videos',
-        },
-        {
-          text: 'Join the Community',
-          href: '#community',
+          text: 'Join the Community on Discord',
+          href: 'https://discord.gg/2mpHtdHKFJ',
+          external: true,
         },
       ],
     },
@@ -68,9 +70,9 @@ export default function Home() {
         <h1 className="md:text-6xl text-5xl text-balance font-bold text-grimwild-green tracking-tight">
           Made with Moxie Toolkit
         </h1>
-        <h2 className="md:text-4xl text-3xl text-balance italic">
+        <p className="md:text-4xl text-3xl text-balance italic">
           Enter a World Where Fantasy Meets Cinematic Action
-        </h2>
+        </p>
         <p className="text-lg md:text-xl max-w-3xl mt-4">
           Moxie is a tabletop RPG designed for players who crave storytelling
           packed with drama, suspense, and breathtaking action. Immerse yourself
@@ -102,13 +104,25 @@ export default function Home() {
                   <p>{section.content.text}</p>
                   <ul className="list-disc space-y-4 pl-4 mt-4">
                     {section.content.links.map((item) => (
-                      <li key={item.href} className="marker:text-grimwild-yellow-dark">
-                        <a
-                          href={item.href}
-                          className="underline decoration-solid underline-offset-4 decoration-grimwild-yellow-dark"
-                        >
-                          {item.text}
-                        </a>
+                      <li
+                        key={item.href}
+                        className="marker:text-grimwild-yellow-dark"
+                      >
+                        {item.external ? (
+                          <ExternalLink
+                            href={item.href}
+                            className="underline decoration-solid underline-offset-4 decoration-grimwild-yellow-dark"
+                          >
+                            {item.text}
+                          </ExternalLink>
+                        ) : (
+                          <a
+                            href={item.href}
+                            className="underline decoration-solid underline-offset-4 decoration-grimwild-yellow-dark"
+                          >
+                            {item.text}
+                          </a>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -139,22 +153,25 @@ export default function Home() {
               narrative-driven RPG.
             </p>
             <div className="flex flex-row gap-4">
-              <a
-                href="https://www.drivethrurpg.com/en/product/508618/grimwild-cinematic-fantasy-roleplaying?affiliate_id=144937" className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold"
+              <ExternalLink
+                href="https://www.drivethrurpg.com/en/product/508618/grimwild-cinematic-fantasy-roleplaying?affiliate_id=144937"
+                className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold"
               >
                 DriveThruRPG
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </div>
       </section>
 
       <section className="flex flex-col gap-y-2 items-center justify-center pt-8 lg:pt-8 text-grimwild-dark mb-16 text-center border-t border-solid border-grimwild-green-light/50">
-        <h2>Made with ❤️ by <a href="https://amazingrando.com">Amazing Rando</a></h2>
-
+        <h2>
+          Made with <span aria-hidden="true">❤️</span> by{' '}
+          <ExternalLink href="https://amazingrando.com">
+            Amazing Rando
+          </ExternalLink>
+        </h2>
       </section>
-
-      {/* <Testimonials /> */}
     </div>
   );
 }

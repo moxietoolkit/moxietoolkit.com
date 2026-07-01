@@ -1,4 +1,5 @@
 import MDXTemplate, {
+  generateMetadataFromDir,
   generateStaticParamsFromDir,
 } from '@/components/MDXTemplate';
 
@@ -11,6 +12,9 @@ export default function ModulesPage(props) {
     section: 'modules',
   });
 }
+
+export const generateMetadata = (props) =>
+  generateMetadataFromDir(CONTENT_PATH, props.params);
 
 export const generateStaticParams = () =>
   generateStaticParamsFromDir(CONTENT_PATH);
