@@ -3,8 +3,9 @@ import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import RuleDivider from './RuleDivider';
 import remarkGfm from 'remark-gfm';
+import ExternalLink from './ExternalLink';
+import RuleDivider from './RuleDivider';
 
 export async function getContent(contentPath, slug) {
   try {
@@ -47,6 +48,15 @@ export async function generateStaticParamsFromDir(contentPath) {
   }
 }
 
+export async function generateMetadataFromDir(contentPath, paramsPromise) {
+  const params = await paramsPromise;
+  const { frontmatter } = await getContent(contentPath, params.slug);
+
+  return {
+    title: `${frontmatter.title} | Moxie Toolkit`,
+  };
+}
+
 export default async function MDXTemplate({
   params: paramsPromise,
   contentPath,
@@ -70,14 +80,12 @@ export default async function MDXTemplate({
           <p className="text-sm mt-2 text-grimwild-dark uppercase font-bold">
             Sourcebook:{' '}
             {frontmatter.sourcebook === 'Grimwild' ? (
-              <a
+              <ExternalLink
                 href="https://www.drivethrurpg.com/en/product/508618/grimwild-cinematic-fantasy-roleplaying?affiliate_id=144937"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="underline hover:text-grimwild-green-light transition-colors"
               >
                 {frontmatter.sourcebook}
-              </a>
+              </ExternalLink>
             ) : (
               frontmatter.sourcebook
             )}
@@ -88,8 +96,8 @@ export default async function MDXTemplate({
             source={content}
             options={{
               mdxOptions: {
-                remarkPlugins: [remarkGfm]
-              }
+                remarkPlugins: [remarkGfm],
+              },
             }}
           />
         </article>
@@ -98,7 +106,9 @@ export default async function MDXTemplate({
   } catch (error) {
     console.error('Template error:', error);
     return (
-      <div className="text-red-500">Content not found: {error.message}</div>
+      <div className="text-red-500" role="alert">
+        Content not found: {error.message}
+      </div>
     );
   }
 }

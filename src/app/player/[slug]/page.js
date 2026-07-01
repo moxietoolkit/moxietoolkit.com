@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import MDXTemplate, {
+  generateMetadataFromDir,
   generateStaticParamsFromDir,
 } from '@/components/MDXTemplate';
 
@@ -18,6 +19,9 @@ PlayerPage.propTypes = {
     slug: PropTypes.string.isRequired,
   }).isRequired,
 };
+
+export const generateMetadata = (props) =>
+  generateMetadataFromDir(CONTENT_PATH, props.params);
 
 export const generateStaticParams = () =>
   generateStaticParamsFromDir(CONTENT_PATH);

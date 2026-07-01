@@ -1,6 +1,6 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import pluginReact from "eslint-plugin-react"; 
+import pluginReact from "eslint-plugin-react";
 import { FlatCompat } from "@eslint/eslintrc";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -40,4 +40,16 @@ export default [
   pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
   ...compat.extends("wesbos"),
+  {
+    rules: {
+      "jsx-a11y/alt-text": "error",
+      "jsx-a11y/anchor-has-content": "error",
+      "jsx-a11y/aria-props": "error",
+      "jsx-a11y/aria-proptypes": "error",
+      "jsx-a11y/aria-unsupported-elements": "error",
+      "jsx-a11y/heading-has-content": "error",
+      "jsx-a11y/iframe-has-title": "error",
+      "jsx-a11y/no-redundant-roles": "error",
+    },
+  },
 ];

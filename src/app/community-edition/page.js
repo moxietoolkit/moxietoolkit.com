@@ -1,5 +1,9 @@
 import RuleDivider from '@/components/RuleDivider';
 
+export const metadata = {
+  title: 'Community Edition | Moxie Toolkit',
+};
+
 export default function CommunityEditionPage() {
   const previewLinks = {
     one: [
