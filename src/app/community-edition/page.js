@@ -122,6 +122,24 @@ export default function CommunityEditionPage() {
         label: 'Preview 5.3 Spreads',
       },
     ],
+    six: [
+      {
+        href: '/downloads/GWCE-Preview-6-CE-Change-Log.pdf',
+        label: 'Preview 6 CE Change Log',
+      },
+      {
+        href: '/downloads/GWCE-Preview-6-Character-Sheets.pdf',
+        label: 'Preview 6 Character Sheets',
+      },
+      {
+        href: '/downloads/GWCE-Preview-6-Pages.pdf',
+        label: 'Preview 6 Pages',
+      },
+      {
+        href: '/downloads/GWCE-Preview-6-Spreads.pdf',
+        label: 'Preview 6 Spreads',
+      },
+    ],
   };
 
   return (
@@ -145,7 +163,7 @@ export default function CommunityEditionPage() {
           </p>
 
           <ul className="list-none flex flex-wrap gap-x-2 gap-y-2 p-0! max-w-full">
-            {previewLinks.fiveDotThree.map((link) => (
+            {previewLinks.six.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
@@ -206,6 +224,15 @@ export default function CommunityEditionPage() {
           </ul>
           <ul className="list-none p-0! m-0! mb-4!">
             {previewLinks.fiveDotTwo.map((link) => (
+              <li key={link.href} className="m-0! p-0!">
+                <a href={link.href} className="text-base">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ul className="list-none p-0! m-0! mb-4!">
+            {previewLinks.fiveDotThree.map((link) => (
               <li key={link.href} className="m-0! p-0!">
                 <a href={link.href} className="text-base">
                   {link.label}
