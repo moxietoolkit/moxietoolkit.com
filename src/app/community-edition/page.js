@@ -241,7 +241,7 @@ export default function CommunityEditionPage() {
             ))}
           </ul>
 
-          <h2>1.5 (Original) to Current CE Version</h2>
+          <h2>1.4 (Original) to Current CE Version</h2>
 
           <h3>General</h3>
           <ul>
@@ -299,18 +299,9 @@ export default function CommunityEditionPage() {
             <li>
               Potent spells (like actions) no longer always remove all thorns.
             </li>
-            <li>"What can spells do?" section added.</li>
             <li>
               Arcana was overhauled into a new system that puts all arcana of
               the same tier on the same power level.
-            </li>
-            <li>
-              Arcana uses whichever stat makes the most sense, as any other
-              action (or a story roll).
-            </li>
-            <li>
-              Artifacts are arcana with a 6d power pool, and any special
-              limitations or effects.
             </li>
           </ul>
 
@@ -385,7 +376,9 @@ export default function CommunityEditionPage() {
               <ul>
                 <li>Removed Trap Sense.</li>
                 <li>Added Distraction.</li>
-                <li>Changed According to Plan to include all flashbacks.</li>
+                <li>
+                  Changed According to Plan to Mastermind, and specialized it.
+                </li>
               </ul>
             </li>
             <li>
@@ -465,7 +458,7 @@ export default function CommunityEditionPage() {
               All points of interest, paths, buildings, and rooms are explained.
             </li>
             <li>Repeated words on crucibles were replaced.</li>
-            <li>Expanded to include Downtime and Stronghold rules.</li>
+            <li>Expanded to include Downtime and Communities rules.</li>
           </ul>
 
           <h3>Chapter 5: Monsters</h3>
@@ -497,7 +490,7 @@ export default function CommunityEditionPage() {
 
           <RuleDivider className="w-full text-grimwild-green-light my-8" />
 
-          <h2>1.5 to Preview 1</h2>
+          <h2>1.4 to Preview 1</h2>
 
           <h3>General</h3>
           <ul>
@@ -772,13 +765,14 @@ export default function CommunityEditionPage() {
 
           <RuleDivider className="w-full text-grimwild-green-light my-8" />
 
-          <h2>Preview 4 to Preview 5 (final!)</h2>
+          <h2>Preview 4 to Preview 5</h2>
 
           <h3>Chapter 1: Gameplay</h3>
           <ul>
             <li>"Thematic Path Talent" section added.</li>
             <li>Magic Examples clarified.</li>
             <li>Spellcasting Talents page added.</li>
+            <li>Weapon Styles moved to Optional Rules.</li>
           </ul>
 
           <h3>Chapter 2: Adventurers</h3>
@@ -786,6 +780,13 @@ export default function CommunityEditionPage() {
             <li>Rationale added to Legacy Core Talents.</li>
             <li>Legacy Bard talent added.</li>
             <li>Bard: Jack of all Trades updated.</li>
+            <li>Ranger: Core Updated.</li>
+            <li>
+              Rogue: Core Updated.
+              <ul>
+                <li>According to Plan specialized and renamed Mastermind.</li>
+              </ul>
+            </li>
             <li>
               Sorcerer: Magic Sense buffed and clarified. Spelleater minor
               changes.
@@ -798,7 +799,12 @@ export default function CommunityEditionPage() {
               </ul>
             </li>
             <li>Wizard: Familiar replaced by Countermagic.</li>
-            <li>Witch: Karmic Debt cut. Replaced by Familiar.</li>
+            <li>
+              Witch: Core talent buffed.
+              <ul>
+                <li>Karmic Debt cut. Replaced by Familiar.</li>
+              </ul>
+            </li>
             <li>Herbalism and Primal Growth switched paths (Druid + Witch).</li>
             <li>Magus switched to using the weapon as the touchstones.</li>
             <li>Added Pint-Sized as Background talent.</li>
@@ -826,6 +832,40 @@ export default function CommunityEditionPage() {
               Optional Rules.
             </li>
             <li>INDEX / GLOSSARY added.</li>
+          </ul>
+
+          <RuleDivider className="w-full text-grimwild-green-light my-8" />
+
+          <h2>Preview 5 to Preview 6</h2>
+
+          <ul>
+            <li>Partial art added.</li>
+          </ul>
+
+          <h3>Chapter 1: Gameplay</h3>
+          <ul>
+            <li>Power pools clarified.</li>
+            <li>Spellcasting Rulings - Summoned Creatures clarified.</li>
+          </ul>
+
+          <h3>Chapter 2: Adventurers</h3>
+          <ul>
+            <li>
+              Talents exclusive to paths have been noted with [Path-Name Only].
+            </li>
+            <li>
+              Summoner
+              <ul>
+                <li>Guidance updated.</li>
+                <li>Core buffed.</li>
+                <li>Monster Menagerie clarified.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Chapter 3: GM Toolkit</h3>
+          <ul>
+            <li>Combat Rulings - Ranged clarified.</li>
           </ul>
         </div>
       </div>
