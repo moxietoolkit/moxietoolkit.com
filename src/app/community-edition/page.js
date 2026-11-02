@@ -1,4 +1,22 @@
+import PropTypes from 'prop-types';
 import RuleDivider from '@/components/RuleDivider';
+
+function ChangelogSection({ title, children }) {
+  return (
+    <details className="my-4">
+      <summary className="cursor-pointer marker:text-grimwild-green-light [&_h2]:my-0 [&_h2]:inline">
+        <h2>{title}</h2>
+      </summary>
+      <div className="mt-3">{children}</div>
+    </details>
+  );
+}
+
+ChangelogSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
 
 export const metadata = {
   title: 'Community Edition | Moxie Toolkit',
@@ -141,11 +159,14 @@ export default function CommunityEditionPage() {
       },
     ],
     current: [
-      { href: '/downloads/GWCE-Pages.pdf', label: 'Pages' },
-      { href: '/downloads/GWCE-Spreads.pdf', label: 'Spreads' },
+      { href: '/downloads/GWCE-Pages.pdf', label: 'Community Edition (Pages)' },
+      {
+        href: '/downloads/GWCE-Spreads.pdf',
+        label: 'Community Edition (Spreads)',
+      },
       {
         href: '/downloads/GWCE-Character-Sheets.pdf',
-        label: 'Character Sheets',
+        label: 'Community Edition (Character Sheets)',
       },
     ],
   };
@@ -183,82 +204,35 @@ export default function CommunityEditionPage() {
             ))}
           </ul>
 
-          <p>Previous previews:</p>
+          <details className="my-4">
+            <summary className="cursor-pointer text-grimwild-green marker:text-grimwild-green-light">
+              Previous previews
+            </summary>
+            <div className="mt-3">
+              {[
+                previewLinks.one,
+                previewLinks.two,
+                previewLinks.three,
+                previewLinks.four,
+                previewLinks.five,
+                previewLinks.fiveDotTwo,
+                previewLinks.fiveDotThree,
+                previewLinks.six,
+              ].map((links) => (
+                <ul key={links[0].href} className="list-none p-0! m-0! mb-4!">
+                  {links.map((link) => (
+                    <li key={link.href} className="m-0! p-0!">
+                      <a href={link.href} className="text-base">
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
+          </details>
 
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.one.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.two.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.three.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.four.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.five.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.fiveDotTwo.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.fiveDotThree.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.six.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <h2>1.4 (Original) to Current CE Version</h2>
+          <ChangelogSection title="1.4 (Original) to Current CE Version">
 
           <h3>General</h3>
           <ul>
@@ -505,9 +479,10 @@ export default function CommunityEditionPage() {
             <li>Random Potion Generator updated from 1.4.</li>
           </ul>
 
+          </ChangelogSection>
           <RuleDivider className="w-full text-grimwild-green-light my-8" />
 
-          <h2>1.4 to Preview 1</h2>
+          <ChangelogSection title="1.4 to Preview 1">
 
           <h3>General</h3>
           <ul>
@@ -615,9 +590,10 @@ export default function CommunityEditionPage() {
             <li>The Brute and Overseer roles were removed.</li>
           </ul>
 
+          </ChangelogSection>
           <RuleDivider className="w-full text-grimwild-green-light my-8" />
 
-          <h2>Preview 1 to Preview 2</h2>
+          <ChangelogSection title="Preview 1 to Preview 2">
 
           <h3>Chapter 1: Gameplay</h3>
           <ul>
@@ -640,9 +616,10 @@ export default function CommunityEditionPage() {
             <li>Repeated words on crucibles were replaced.</li>
           </ul>
 
+          </ChangelogSection>
           <RuleDivider className="w-full text-grimwild-green-light my-8" />
 
-          <h2>Preview 2 to Preview 3</h2>
+          <ChangelogSection title="Preview 2 to Preview 3">
 
           <h3>Chapter 1: Gameplay</h3>
           <ul>
@@ -706,9 +683,10 @@ export default function CommunityEditionPage() {
             <li>Flavors of Fantasy expanded to one page each.</li>
           </ul>
 
+          </ChangelogSection>
           <RuleDivider className="w-full text-grimwild-green-light my-8" />
 
-          <h2>Preview 3 to Preview 4</h2>
+          <ChangelogSection title="Preview 3 to Preview 4">
 
           <h3>Chapter 1: Gameplay</h3>
           <ul>
@@ -780,9 +758,10 @@ export default function CommunityEditionPage() {
             <li>Random Potion Generator updated from 1.4.</li>
           </ul>
 
+          </ChangelogSection>
           <RuleDivider className="w-full text-grimwild-green-light my-8" />
 
-          <h2>Preview 4 to Preview 5</h2>
+          <ChangelogSection title="Preview 4 to Preview 5">
 
           <h3>Chapter 1: Gameplay</h3>
           <ul>
@@ -851,9 +830,10 @@ export default function CommunityEditionPage() {
             <li>INDEX / GLOSSARY added.</li>
           </ul>
 
+          </ChangelogSection>
           <RuleDivider className="w-full text-grimwild-green-light my-8" />
 
-          <h2>Preview 5 to Preview 6</h2>
+          <ChangelogSection title="Preview 5 to Preview 6">
 
           <ul>
             <li>Partial art added.</li>
@@ -884,6 +864,7 @@ export default function CommunityEditionPage() {
           <ul>
             <li>Combat Rulings - Ranged clarified.</li>
           </ul>
+          </ChangelogSection>
         </div>
       </div>
     </div>
