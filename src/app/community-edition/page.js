@@ -140,6 +140,14 @@ export default function CommunityEditionPage() {
         label: 'Preview 6 Spreads',
       },
     ],
+    current: [
+      { href: '/downloads/GWCE-Pages.pdf', label: 'Pages' },
+      { href: '/downloads/GWCE-Spreads.pdf', label: 'Spreads' },
+      {
+        href: '/downloads/GWCE-Character-Sheets.pdf',
+        label: 'Character Sheets',
+      },
+    ],
   };
 
   return (
@@ -163,7 +171,7 @@ export default function CommunityEditionPage() {
           </p>
 
           <ul className="list-none flex flex-wrap gap-x-2 gap-y-2 p-0! max-w-full">
-            {previewLinks.six.map((link) => (
+            {previewLinks.current.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
@@ -233,6 +241,15 @@ export default function CommunityEditionPage() {
           </ul>
           <ul className="list-none p-0! m-0! mb-4!">
             {previewLinks.fiveDotThree.map((link) => (
+              <li key={link.href} className="m-0! p-0!">
+                <a href={link.href} className="text-base">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ul className="list-none p-0! m-0! mb-4!">
+            {previewLinks.six.map((link) => (
               <li key={link.href} className="m-0! p-0!">
                 <a href={link.href} className="text-base">
                   {link.label}
