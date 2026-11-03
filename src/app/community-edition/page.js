@@ -1,4 +1,21 @@
+import PropTypes from 'prop-types';
 import RuleDivider from '@/components/RuleDivider';
+
+function ChangelogSection({ title, children }) {
+  return (
+    <details className="my-4">
+      <summary className="cursor-pointer marker:text-grimwild-green-light [&_h4]:my-0 [&_h4]:inline">
+        <h4>{title}</h4>
+      </summary>
+      <div className="mt-3">{children}</div>
+    </details>
+  );
+}
+
+ChangelogSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export const metadata = {
   title: 'Community Edition | Moxie Toolkit',
@@ -140,6 +157,17 @@ export default function CommunityEditionPage() {
         label: 'Preview 6 Spreads',
       },
     ],
+    current: [
+      { href: '/downloads/GWCE-Pages.pdf', label: 'Community Edition (Pages)' },
+      {
+        href: '/downloads/GWCE-Spreads.pdf',
+        label: 'Community Edition (Spreads)',
+      },
+      {
+        href: '/downloads/GWCE-Character-Sheets.pdf',
+        label: 'Community Edition (Character Sheets)',
+      },
+    ],
   };
 
   return (
@@ -163,11 +191,11 @@ export default function CommunityEditionPage() {
           </p>
 
           <ul className="list-none flex flex-wrap gap-x-2 gap-y-2 p-0! max-w-full">
-            {previewLinks.six.map((link) => (
-              <li key={link.href}>
+            {previewLinks.current.map((link) => (
+              <li key={link.href} className="max-w-full min-w-0">
                 <a
                   href={link.href}
-                  className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold no-underline whitespace-nowrap"
+                  className="inline-block max-w-full bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold no-underline whitespace-normal"
                 >
                   {link.label}
                 </a>
@@ -175,698 +203,664 @@ export default function CommunityEditionPage() {
             ))}
           </ul>
 
-          <p>Previous previews:</p>
+          <details className="my-4">
+            <summary className="cursor-pointer text-grimwild-green marker:text-grimwild-green-light font-bold">
+              Previous preview PDFs
+            </summary>
+            <div className="mt-3">
+              {[
+                previewLinks.one,
+                previewLinks.two,
+                previewLinks.three,
+                previewLinks.four,
+                previewLinks.five,
+                previewLinks.fiveDotTwo,
+                previewLinks.fiveDotThree,
+                previewLinks.six,
+              ].map((links) => (
+                <ul key={links[0].href} className="list-none p-0! m-0! mb-4!">
+                  {links.map((link) => (
+                    <li key={link.href} className="m-0! p-0!">
+                      <a href={link.href} className="text-base">
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
+          </details>
 
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.one.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
+          <ChangelogSection title="1.4 (Original) to Current CE Version">
+            <h3>General</h3>
+            <ul>
+              <li>Chapters reordered.</li>
+              <li>Overall clarity and guidance.</li>
+            </ul>
+
+            <h3>Chapter 1: Gameplay</h3>
+            <ul>
+              <li>Risk added as a section.</li>
+              <li>
+                Impossible decoupled from 3t, though general rolls should still
+                have 0-2 thorns.
               </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.two.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
+              <li>
+                Vantage scale replaced with
+                certain/reasonable/doubtful/impossible.
               </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.three.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
+              <li>
+                Critical Effect - Secondary Effect: codified as perfect on a
+                different, but related action.
               </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.four.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
+              <li>
+                Any pool dropping 0d gains a secondary effect, or the PC can
+                push themselves to drop 1d (not just on a 1d initial pool).
               </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.five.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
+              <li>Push Yourself always gives a mark.</li>
+              <li>Story (meta-currency) renamed Thread.</li>
+              <li>
+                Harm clarified as the standard weight of an impact move, not the
+                default. Additional harm suggestions added.
               </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.fiveDotTwo.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
+              <li>
+                Bloodied and Rattled thorns only apply to their respective
+                stats.
               </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0! m-0! mb-4!">
-            {previewLinks.fiveDotThree.map((link) => (
-              <li key={link.href} className="m-0! p-0!">
-                <a href={link.href} className="text-base">
-                  {link.label}
-                </a>
+              <li>
+                Desperate added as harm upon second bloodied or rattled, instead
+                of dropped. Additional harm leaves you dropped.
               </li>
-            ))}
-          </ul>
+              <li>
+                "Death" options added, such as sacrifice, retirement, and
+                another end.
+              </li>
+              <li>Treatment does not always carry risk, though often does.</li>
+              <li>
+                Potency is connected to vantage, and no longer always removes
+                all thorns.
+              </li>
+              <li>Cantrips have been removed.</li>
+              <li>
+                Spells without risk are automatically successful and require no
+                resource.
+              </li>
+              <li>Rituals are cast with invocations, instead of rites.</li>
+              <li>
+                Potent spells (like actions) no longer always remove all thorns.
+              </li>
+              <li>
+                Arcana was overhauled into a new system that puts all arcana of
+                the same tier on the same power level.
+              </li>
+            </ul>
 
-          <h2>1.4 (Original) to Current CE Version</h2>
+            <h3>Chapter 2: Adventurers</h3>
+            <ul>
+              <li>
+                Party concepts updated: added Merchants and Scholars, cut
+                Avengers and Vassals.
+              </li>
+              <li>Heritage talent suggestions added.</li>
+              <li>Investigator added as a background.</li>
+              <li>Background talents added.</li>
+              <li>
+                Guidance and inspiration boxes added under various talents.
+              </li>
+              <li>All talents can only be taken once.</li>
+              <li>
+                Talents that affect Vigilance have been made more general.
+              </li>
+              <li>
+                Bard core talent reworked.
+                <ul>
+                  <li>Removed Influence.</li>
+                  <li>Added Folk Hero.</li>
+                  <li>Changed Jack of All Trades.</li>
+                </ul>
+              </li>
+              <li>Berserker path talents War Songs replaced with Warcry.</li>
+              <li>
+                Clerics cast with rite pools instead of domain pools, and have
+                had their growth increased.
+                <ul>
+                  <li>Buffed Healer.</li>
+                  <li>Changed Iron Will to a resource pool.</li>
+                </ul>
+              </li>
+              <li>
+                Druid Wild Shape pool is a resource pool (and so works even if
+                dropped to 0d), and its size has been lowered to compensate.
+                <ul>
+                  <li>
+                    Removed Verdant Whispers (effects added to Kindred Spirits).
+                  </li>
+                  <li>Added Augury.</li>
+                  <li>Changed Primordial Bonds, renamed Primordial Forces.</li>
+                </ul>
+              </li>
+              <li>
+                Fighter core talent replaced.
+                <ul>
+                  <li>Changed Bulwark to a resource pool.</li>
+                </ul>
+              </li>
+              <li>
+                Monk path talents changed.
+                <ul>
+                  <li>Removed Flow State and Primordial Forces.</li>
+                  <li>Added Redirect and Resonance.</li>
+                  <li>Slight buff to Tether.</li>
+                </ul>
+              </li>
+              <li>
+                Paladin path talents changed.
+                <ul>
+                  <li>
+                    Aegis and Guardian changed, each with parts of both. Aegis
+                    is focused on self-protection, and Guardian is focused on
+                    protecting allies.
+                  </li>
+                </ul>
+              </li>
+              <li>Ranger core talent buffed.</li>
+              <li>
+                Rogue core talent expanded to allow picking skills, growth
+                changed.
+                <ul>
+                  <li>Removed Trap Sense.</li>
+                  <li>Added Distraction.</li>
+                  <li>
+                    Changed According to Plan to Mastermind, and specialized it.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Sorcerer core talent expanded to allow different Magical Twists.
+                <ul>
+                  <li>
+                    Changed Subtle Casting to Metamagic, allowing multiple spell
+                    changes.
+                  </li>
+                  <li>Changed Wisps.</li>
+                </ul>
+              </li>
+              <li>
+                Warlock core talent replaced.
+                <ul>
+                  <li>Removed Hex.</li>
+                  <li>Added Affliction.</li>
+                  <li>Slight buff to Knowing Gaze.</li>
+                  <li>Changed Visions and Wayfarer.</li>
+                  <li>Ritualist renamed to Blood Rituals, slight buff.</li>
+                  <li>Eldritch Weaponry renamed to Magus, reworked.</li>
+                </ul>
+              </li>
+              <li>
+                Wizard path talent changed.
+                <ul>
+                  <li>
+                    Removed Prepared Spell (Rogue's According to Plan covers
+                    effects).
+                  </li>
+                  <li>Added Component Pouch.</li>
+                  <li>Changed Arcanist to Archivist for new arcana rules.</li>
+                </ul>
+              </li>
+              <li>
+                The Psion core talent has been replaced, with many path talent
+                changes.
+              </li>
+              <li>
+                The Artificer core talent has been reworked, with many path
+                talent changes.
+              </li>
+              <li>
+                The Summoner, Swashbuckler, and Witch have been added as new
+                path options.
+              </li>
+              <li>Legacy talents, those cut from previous editions added.</li>
+            </ul>
 
-          <h3>General</h3>
-          <ul>
-            <li>Chapters reordered.</li>
-            <li>Overall clarity and guidance.</li>
-          </ul>
+            <h3>Chapter 3: GM Toolkit</h3>
+            <ul>
+              <li>
+                Stakes are tied to potential harm and split into
+                Low/Regular/High/Dire.
+              </li>
+              <li>
+                Story Moves cut completely, added as guidance. Spotlight is now
+                a system term.
+              </li>
+              <li>
+                Suspense moves cut to Resolve, Foreshadow, Build Up, and Clue
+                In.
+              </li>
+              <li>
+                Impact moves cut to Complicate Things, Hit Hard, Lock Down, and
+                Counter.
+              </li>
+              <li>
+                Lock Down combines the old moves Force A Choice and Lock It In.
+              </li>
+              <li>Battlegrounds added as a Challenge option.</li>
+              <li>The Marauder and Overseer monster roles were removed.</li>
+            </ul>
 
-          <h3>Chapter 1: Gameplay</h3>
-          <ul>
-            <li>Risk added as a section.</li>
-            <li>
-              Impossible decoupled from 3t, though general rolls should still
-              have 0-2 thorns.
-            </li>
-            <li>
-              Vantage scale replaced with
-              certain/reasonable/doubtful/impossible.
-            </li>
-            <li>
-              Critical Effect - Secondary Effect: codified as perfect on a
-              different, but related action.
-            </li>
-            <li>
-              Any pool dropping 0d gains a secondary effect, or the PC can push
-              themselves to drop 1d (not just on a 1d initial pool).
-            </li>
-            <li>Push Yourself always gives a mark.</li>
-            <li>Story (meta-currency) renamed Thread.</li>
-            <li>
-              Harm clarified as the standard weight of an impact move, not the
-              default. Additional harm suggestions added.
-            </li>
-            <li>
-              Bloodied and Rattled thorns only apply to their respective stats.
-            </li>
-            <li>
-              Desperate added as harm upon second bloodied or rattled, instead
-              of dropped. Additional harm leaves you dropped.
-            </li>
-            <li>
-              "Death" options added, such as sacrifice, retirement, and another
-              end.
-            </li>
-            <li>Treatment does not always carry risk, though often does.</li>
-            <li>
-              Potency is connected to vantage, and no longer always removes all
-              thorns.
-            </li>
-            <li>Cantrips have been removed.</li>
-            <li>
-              Spells without risk are automatically successful and require no
-              resource.
-            </li>
-            <li>Rituals are cast with invocations, instead of rites.</li>
-            <li>
-              Potent spells (like actions) no longer always remove all thorns.
-            </li>
-            <li>
-              Arcana was overhauled into a new system that puts all arcana of
-              the same tier on the same power level.
-            </li>
-          </ul>
+            <h3>Chapter 4: Exploration</h3>
+            <ul>
+              <li>
+                All points of interest, paths, buildings, and rooms are
+                explained.
+              </li>
+              <li>Repeated words on crucibles were replaced.</li>
+              <li>Expanded to include Downtime and Communities rules.</li>
+            </ul>
 
-          <h3>Chapter 2: Adventurers</h3>
-          <ul>
-            <li>
-              Party concepts updated: added Merchants and Scholars, cut Avengers
-              and Vassals.
-            </li>
-            <li>Heritage talent suggestions added.</li>
-            <li>Investigator added as a background.</li>
-            <li>Background talents added.</li>
-            <li>Guidance and inspiration boxes added under various talents.</li>
-            <li>All talents can only be taken once.</li>
-            <li>Talents that affect Vigilance have been made more general.</li>
-            <li>
-              Bard core talent reworked.
-              <ul>
-                <li>Removed Influence.</li>
-                <li>Added Folk Hero.</li>
-                <li>Changed Jack of All Trades.</li>
-              </ul>
-            </li>
-            <li>Berserker path talents War Songs replaced with Warcry.</li>
-            <li>
-              Clerics cast with rite pools instead of domain pools, and have had
-              their growth increased.
-              <ul>
-                <li>Buffed Healer.</li>
-                <li>Changed Iron Will to a resource pool.</li>
-              </ul>
-            </li>
-            <li>
-              Druid Wild Shape pool is a resource pool (and so works even if
-              dropped to 0d), and its size has been lowered to compensate.
-              <ul>
-                <li>
-                  Removed Verdant Whispers (effects added to Kindred Spirits).
-                </li>
-                <li>Added Augury.</li>
-                <li>Changed Primordial Bonds, renamed Primordial Forces.</li>
-              </ul>
-            </li>
-            <li>
-              Fighter core talent replaced.
-              <ul>
-                <li>Changed Bulwark to a resource pool.</li>
-              </ul>
-            </li>
-            <li>
-              Monk path talents changed.
-              <ul>
-                <li>Removed Flow State and Primordial Forces.</li>
-                <li>Added Redirect and Resonance.</li>
-                <li>Slight buff to Tether.</li>
-              </ul>
-            </li>
-            <li>
-              Paladin path talents changed.
-              <ul>
-                <li>
-                  Aegis and Guardian changed, each with parts of both. Aegis is
-                  focused on self-protection, and Guardian is focused on
-                  protecting allies.
-                </li>
-              </ul>
-            </li>
-            <li>Ranger core talent buffed.</li>
-            <li>
-              Rogue core talent expanded to allow picking skills, growth
-              changed.
-              <ul>
-                <li>Removed Trap Sense.</li>
-                <li>Added Distraction.</li>
-                <li>
-                  Changed According to Plan to Mastermind, and specialized it.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Sorcerer core talent expanded to allow different Magical Twists.
-              <ul>
-                <li>
-                  Changed Subtle Casting to Metamagic, allowing multiple spell
-                  changes.
-                </li>
-                <li>Changed Wisps.</li>
-              </ul>
-            </li>
-            <li>
-              Warlock core talent replaced.
-              <ul>
-                <li>Removed Hex.</li>
-                <li>Added Affliction.</li>
-                <li>Slight buff to Knowing Gaze.</li>
-                <li>Changed Visions and Wayfarer.</li>
-                <li>Ritualist renamed to Blood Rituals, slight buff.</li>
-                <li>Eldritch Weaponry renamed to Magus, reworked.</li>
-              </ul>
-            </li>
-            <li>
-              Wizard path talent changed.
-              <ul>
-                <li>
-                  Removed Prepared Spell (Rogue's According to Plan covers
-                  effects).
-                </li>
-                <li>Added Component Pouch.</li>
-                <li>Changed Arcanist to Archivist for new arcana rules.</li>
-              </ul>
-            </li>
-            <li>
-              The Psion core talent has been replaced, with many path talent
-              changes.
-            </li>
-            <li>
-              The Artificer core talent has been reworked, with many path talent
-              changes.
-            </li>
-            <li>
-              The Summoner, Swashbuckler, and Witch have been added as new path
-              options.
-            </li>
-            <li>Legacy talents, those cut from previous editions added.</li>
-          </ul>
+            <h3>Chapter 5: Monsters</h3>
+            <ul>
+              <li>The occasional monster role has been updated.</li>
+              <li>Added the Kraken, Land Shark, and Mephit.</li>
+            </ul>
 
-          <h3>Chapter 3: GM Toolkit</h3>
-          <ul>
-            <li>
-              Stakes are tied to potential harm and split into
-              Low/Regular/High/Dire.
-            </li>
-            <li>
-              Story Moves cut completely, added as guidance. Spotlight is now a
-              system term.
-            </li>
-            <li>
-              Suspense moves cut to Resolve, Foreshadow, Build Up, and Clue In.
-            </li>
-            <li>
-              Impact moves cut to Complicate Things, Hit Hard, Lock Down, and
-              Counter.
-            </li>
-            <li>
-              Lock Down combines the old moves Force A Choice and Lock It In.
-            </li>
-            <li>Battlegrounds added as a Challenge option.</li>
-            <li>The Marauder and Overseer monster roles were removed.</li>
-          </ul>
+            <h3>Chapter 6: Game Options</h3>
+            <ul>
+              <li>Setting Dials added.</li>
+              <li>Optional Rules added.</li>
+              <li>Flavors of Fantasy expanded to one page each.</li>
+              <li>
+                Story Kit Explanation added, with full kits moved to printable
+                sheets.
+              </li>
+              <li>Expanded solo play rules.</li>
+            </ul>
 
-          <h3>Chapter 4: Exploration</h3>
-          <ul>
-            <li>
-              All points of interest, paths, buildings, and rooms are explained.
-            </li>
-            <li>Repeated words on crucibles were replaced.</li>
-            <li>Expanded to include Downtime and Communities rules.</li>
-          </ul>
+            <h3>Chapter 7: Extras</h3>
+            <ul>
+              <li>Hex Flowers added as GM Tool.</li>
+              <li>Story Kit Explanation added.</li>
+              <li>Expanded solo play rules added.</li>
+              <li>List of Arcana added.</li>
+              <li>Random Potion Generator updated from 1.4.</li>
+            </ul>
+          </ChangelogSection>
 
-          <h3>Chapter 5: Monsters</h3>
-          <ul>
-            <li>The occasional monster role has been updated.</li>
-            <li>Added the Kraken, Land Shark, and Mephit.</li>
-          </ul>
+          <ChangelogSection title="1.4 to Preview 1">
+            <h3>General</h3>
+            <ul>
+              <li>Chapters reordered.</li>
+              <li>Overall clarity and guidance.</li>
+            </ul>
 
-          <h3>Chapter 6: Game Options</h3>
-          <ul>
-            <li>Setting Dials added.</li>
-            <li>Optional Rules added.</li>
-            <li>Flavors of Fantasy expanded to one page each.</li>
-            <li>
-              Story Kit Explanation added, with full kits moved to printable
-              sheets.
-            </li>
-            <li>Expanded solo play rules.</li>
-          </ul>
+            <h3>Chapter 1: Gameplay</h3>
+            <ul>
+              <li>Risk added as a section.</li>
+              <li>
+                Impossible decoupled from 3t, though general rolls should still
+                have 0-2 thorns.
+              </li>
+              <li>
+                Vantage scale replaced with
+                certain/reasonable/doubtful/impossible.
+              </li>
+              <li>
+                Critical Effect - Secondary Effect: codified as perfect on a
+                different, but related action.
+              </li>
+              <li>
+                Any pool dropping 0d gains a secondary effect, or the PC can
+                push themselves to drop 1d (not just on a 1d initial pool).
+              </li>
+              <li>
+                Harm clarified as the standard weight of an impact move, not the
+                default. Additional harm suggestions added.
+              </li>
+              <li>
+                Bloodied and Rattled thorns only apply to their respective
+                stats.
+              </li>
+              <li>
+                Desperate added as harm upon second bloodied or rattled, instead
+                of dropped. Additional harm leaves you dropped.
+              </li>
+              <li>
+                "Death" options added, such as sacrifice, retirement, and
+                another end.
+              </li>
+              <li>Treatment does not always carry risk, though often does.</li>
+              <li>
+                Potency is connected to vantage, and no longer always removes
+                all thorns.
+              </li>
+              <li>Cantrips have been removed.</li>
+              <li>
+                Spells without risk are automatically successful and require no
+                resource.
+              </li>
+              <li>
+                Potent spells (like actions) no longer always remove all thorns.
+              </li>
+              <li>"What can spells do?" section added.</li>
+              <li>
+                Arcana was overhauled into a new system that puts all arcana of
+                the same tier on the same power level.
+              </li>
+              <li>
+                Arcana uses whichever stat makes the most sense, as any other
+                action (or a story roll).
+              </li>
+              <li>
+                Artifacts are arcana with special limitations, effects, or
+                anything unique.
+              </li>
+            </ul>
 
-          <h3>Chapter 7: Extras</h3>
-          <ul>
-            <li>Hex Flowers added as GM Tool.</li>
-            <li>Story Kit Explanation added.</li>
-            <li>Expanded solo play rules added.</li>
-            <li>List of Arcana added.</li>
-            <li>Random Potion Generator updated from 1.4.</li>
-          </ul>
+            <h3>Chapter 2: Adventurers</h3>
+            <ul>
+              <li>Heritage talent suggestions added.</li>
+              <li>Investigator added as a background.</li>
+              <li>Background talents added.</li>
+              <li>The Warlock core talent has been replaced.</li>
+              <li>
+                Bard, Fighter, Ranger, Rogue core talents have been reworked.
+              </li>
+              <li>Various path talent updates to all paths.</li>
+              <li>Inspiration boxes added under various talents.</li>
+            </ul>
 
-          <RuleDivider className="w-full text-grimwild-green-light my-8" />
+            <h3>Chapter 3: GM Toolkit</h3>
+            <ul>
+              <li>
+                Stakes are tied to potential harm and split into
+                Low/Regular/High/Dire.
+              </li>
+              <li>
+                Story Moves cut completely, added as guidance. Spotlight is now
+                a system term.
+              </li>
+              <li>
+                Suspense moves cut to Resolve, Foreshadow, Build Up, and Clue
+                In.
+              </li>
+              <li>Build Up can be used to introduce Challenges.</li>
+              <li>
+                Impact moves cut to Complicate Things, Hit Hard, Lock Down, and
+                Counter.
+              </li>
+              <li>
+                Lock Down combines the old moves Force A Choice and Lock It In.
+              </li>
+              <li>Battlegrounds added as a Challenge option.</li>
+              <li>The Brute and Overseer roles were removed.</li>
+            </ul>
+          </ChangelogSection>
 
-          <h2>1.4 to Preview 1</h2>
+          <ChangelogSection title="Preview 1 to Preview 2">
+            <h3>Chapter 1: Gameplay</h3>
+            <ul>
+              <li>Rituals are cast with invocations instead of rites.</li>
+            </ul>
 
-          <h3>General</h3>
-          <ul>
-            <li>Chapters reordered.</li>
-            <li>Overall clarity and guidance.</li>
-          </ul>
+            <h3>Chapter 2: Adventurers</h3>
+            <ul>
+              <li>Bonus Dice section added.</li>
+              <li>Clerics cast with Rites.</li>
+              <li>Warlock core talent replaced.</li>
+              <li>Ranger core updated.</li>
+            </ul>
 
-          <h3>Chapter 1: Gameplay</h3>
-          <ul>
-            <li>Risk added as a section.</li>
-            <li>
-              Impossible decoupled from 3t, though general rolls should still
-              have 0-2 thorns.
-            </li>
-            <li>
-              Vantage scale replaced with
-              certain/reasonable/doubtful/impossible.
-            </li>
-            <li>
-              Critical Effect - Secondary Effect: codified as perfect on a
-              different, but related action.
-            </li>
-            <li>
-              Any pool dropping 0d gains a secondary effect, or the PC can push
-              themselves to drop 1d (not just on a 1d initial pool).
-            </li>
-            <li>
-              Harm clarified as the standard weight of an impact move, not the
-              default. Additional harm suggestions added.
-            </li>
-            <li>
-              Bloodied and Rattled thorns only apply to their respective stats.
-            </li>
-            <li>
-              Desperate added as harm upon second bloodied or rattled, instead
-              of dropped. Additional harm leaves you dropped.
-            </li>
-            <li>
-              "Death" options added, such as sacrifice, retirement, and another
-              end.
-            </li>
-            <li>Treatment does not always carry risk, though often does.</li>
-            <li>
-              Potency is connected to vantage, and no longer always removes all
-              thorns.
-            </li>
-            <li>Cantrips have been removed.</li>
-            <li>
-              Spells without risk are automatically successful and require no
-              resource.
-            </li>
-            <li>
-              Potent spells (like actions) no longer always remove all thorns.
-            </li>
-            <li>"What can spells do?" section added.</li>
-            <li>
-              Arcana was overhauled into a new system that puts all arcana of
-              the same tier on the same power level.
-            </li>
-            <li>
-              Arcana uses whichever stat makes the most sense, as any other
-              action (or a story roll).
-            </li>
-            <li>
-              Artifacts are arcana with special limitations, effects, or
-              anything unique.
-            </li>
-          </ul>
+            <h3>Chapter 4: Exploration (New)</h3>
+            <ul>
+              <li>
+                All points of interest, paths, buildings, and rooms are
+                explained.
+              </li>
+              <li>Repeated words on crucibles were replaced.</li>
+            </ul>
+          </ChangelogSection>
 
-          <h3>Chapter 2: Adventurers</h3>
-          <ul>
-            <li>Heritage talent suggestions added.</li>
-            <li>Investigator added as a background.</li>
-            <li>Background talents added.</li>
-            <li>The Warlock core talent has been replaced.</li>
-            <li>
-              Bard, Fighter, Ranger, Rogue core talents have been reworked.
-            </li>
-            <li>Various path talent updates to all paths.</li>
-            <li>Inspiration boxes added under various talents.</li>
-          </ul>
+          <ChangelogSection title="Preview 2 to Preview 3">
+            <h3>Chapter 1: Gameplay</h3>
+            <ul>
+              <li>Push Yourself always gives a mark.</li>
+              <li>Arcana section clarified.</li>
+              <li>Artifacts are now a 6d power pool.</li>
+            </ul>
 
-          <h3>Chapter 3: GM Toolkit</h3>
-          <ul>
-            <li>
-              Stakes are tied to potential harm and split into
-              Low/Regular/High/Dire.
-            </li>
-            <li>
-              Story Moves cut completely, added as guidance. Spotlight is now a
-              system term.
-            </li>
-            <li>
-              Suspense moves cut to Resolve, Foreshadow, Build Up, and Clue In.
-            </li>
-            <li>Build Up can be used to introduce Challenges.</li>
-            <li>
-              Impact moves cut to Complicate Things, Hit Hard, Lock Down, and
-              Counter.
-            </li>
-            <li>
-              Lock Down combines the old moves Force A Choice and Lock It In.
-            </li>
-            <li>Battlegrounds added as a Challenge option.</li>
-            <li>The Brute and Overseer roles were removed.</li>
-          </ul>
+            <h3>Chapter 2: Adventurers</h3>
+            <ul>
+              <li>
+                Some talents with Push Yourself changed to have a free
+                activation.
+              </li>
+            </ul>
 
-          <RuleDivider className="w-full text-grimwild-green-light my-8" />
+            <h3>Chapter 3: GM Toolkit</h3>
+            <ul>
+              <li>The Brute replaced the Marauder monster role.</li>
+            </ul>
 
-          <h2>Preview 1 to Preview 2</h2>
+            <h3>Chapter 5: Monsters (New)</h3>
+            <ul>
+              <li>The occasional monster role has been updated.</li>
+            </ul>
 
-          <h3>Chapter 1: Gameplay</h3>
-          <ul>
-            <li>Rituals are cast with invocations instead of rites.</li>
-          </ul>
+            <h3>Chapter 6: Player Options (New)</h3>
+            <ul>
+              <li>
+                Artificer core talent replaced.
+                <ul>
+                  <li>
+                    Removed Anchorshot, Automatons, Double-Barreled Blunderbuss,
+                    Mechanical Mount, Steamhammer, Swiftwing.
+                  </li>
+                  <li>
+                    Added Animate Objects, Artificial Parts, Mischief Maker,
+                    Tinkerer, Trap Making, Wandslinger.
+                  </li>
+                  <li>Minor Changes Grenades.</li>
+                </ul>
+              </li>
+              <li>
+                Psion core talent replaced.
+                <ul>
+                  <li>Removed Mind Seed, Tumultuous Mind, Wilder.</li>
+                  <li>Added Echo, Foresight, Shift Form.</li>
+                  <li>
+                    Mind Thief renamed to Mind Blast, updated for new core.
+                  </li>
+                  <li>Disturbed Mind renamed to Tumultuous Mind.</li>
+                </ul>
+              </li>
+              <li>
+                The Summoner, Swashbuckler, and Witch have been added as new
+                path options.
+              </li>
+            </ul>
 
-          <h3>Chapter 2: Adventurers</h3>
-          <ul>
-            <li>Bonus Dice section added.</li>
-            <li>Clerics cast with Rites.</li>
-            <li>Warlock core talent replaced.</li>
-            <li>Ranger core updated.</li>
-          </ul>
+            <h3>Chapter 7: Game Options (New)</h3>
+            <ul>
+              <li>Setting Dials added.</li>
+              <li>Optional Rules added.</li>
+              <li>Flavors of Fantasy expanded to one page each.</li>
+            </ul>
+          </ChangelogSection>
 
-          <h3>Chapter 4: Exploration (New)</h3>
-          <ul>
-            <li>
-              All points of interest, paths, buildings, and rooms are explained.
-            </li>
-            <li>Repeated words on crucibles were replaced.</li>
-          </ul>
+          <ChangelogSection title="Preview 3 to Preview 4">
+            <h3>Chapter 1: Gameplay</h3>
+            <ul>
+              <li>Story (meta-currency) renamed Thread.</li>
+              <li>Protecting Others (from v1.4 assists) added.</li>
+              <li>Arcana expanded, Artifacts merged with Mythic.</li>
+            </ul>
 
-          <RuleDivider className="w-full text-grimwild-green-light my-8" />
+            <h3>Chapter 2: Adventurers</h3>
+            <ul>
+              <li>
+                Party concepts updated: added Merchants and Scholars, cut
+                Avengers and Vassals.
+              </li>
+              <li>Berserker: Flesh Wounds updated to be more like original.</li>
+              <li>Ranger: Quarry widened to include anyone attacking.</li>
+              <li>Sorcerer: Eldritch Growth clarified.</li>
+              <li>
+                Warlock: Core Updated.
+                <ul>
+                  <li>Ritualist renamed Blood Rituals, slight buff.</li>
+                  <li>Eldritch Weaponry renamed Magus, reworked.</li>
+                </ul>
+              </li>
+              <li>Wizard: Archivist updated for new arcana rules.</li>
+            </ul>
 
-          <h2>Preview 2 to Preview 3</h2>
+            <h3>Chapter 3: GM Toolkit</h3>
+            <ul>
+              <li>
+                Build Up is no longer required to introduce Challenges, only
+                suggested.
+              </li>
+              <li>Examples of play updated.</li>
+            </ul>
 
-          <h3>Chapter 1: Gameplay</h3>
-          <ul>
-            <li>Push Yourself always gives a mark.</li>
-            <li>Arcana section clarified.</li>
-            <li>Artifacts are now a 6d power pool.</li>
-          </ul>
+            <h3>Chapter 4: Exploration</h3>
+            <ul>
+              <li>Expanded to include Downtime rules.</li>
+            </ul>
 
-          <h3>Chapter 2: Adventurers</h3>
-          <ul>
-            <li>
-              Some talents with Push Yourself changed to have a free activation.
-            </li>
-          </ul>
+            <h3>Chapter 5: Monsters</h3>
+            <ul>
+              <li>Added the Kraken, Land Shark, and Mephit.</li>
+            </ul>
 
-          <h3>Chapter 3: GM Toolkit</h3>
-          <ul>
-            <li>The Brute replaced the Marauder monster role.</li>
-          </ul>
+            <h3>Chapter 6: Player Options</h3>
+            <ul>
+              <li>
+                Artificer: Core Updated.
+                <ul>
+                  <li>Tinkerer renamed Magnum Opus, reworked.</li>
+                </ul>
+              </li>
+              <li>Psion: Wilder cut, replaced with Shift Form.</li>
+              <li>
+                Summoner: Universal Language updated to match new Witch core.
+              </li>
+              <li>Swashbuckler: Core Updated.</li>
+              <li>Witch: Core Updated.</li>
+            </ul>
 
-          <h3>Chapter 5: Monsters (New)</h3>
-          <ul>
-            <li>The occasional monster role has been updated.</li>
-          </ul>
+            <h3>Chapter 8: Extras (new)</h3>
+            <ul>
+              <li>Hex Flowers added as GM Tool.</li>
+              <li>Story Kit Explanation added.</li>
+              <li>Expanded solo play rules added.</li>
+              <li>List of Arcana added.</li>
+              <li>Random Potion Generator updated from 1.4.</li>
+            </ul>
+          </ChangelogSection>
 
-          <h3>Chapter 6: Player Options (New)</h3>
-          <ul>
-            <li>
-              Artificer core talent replaced.
-              <ul>
-                <li>
-                  Removed Anchorshot, Automatons, Double-Barreled Blunderbuss,
-                  Mechanical Mount, Steamhammer, Swiftwing.
-                </li>
-                <li>
-                  Added Animate Objects, Artificial Parts, Mischief Maker,
-                  Tinkerer, Trap Making, Wandslinger.
-                </li>
-                <li>Minor Changes Grenades.</li>
-              </ul>
-            </li>
-            <li>
-              Psion core talent replaced.
-              <ul>
-                <li>Removed Mind Seed, Tumultuous Mind, Wilder.</li>
-                <li>Added Echo, Foresight, Shift Form.</li>
-                <li>Mind Thief renamed to Mind Blast, updated for new core.</li>
-                <li>Disturbed Mind renamed to Tumultuous Mind.</li>
-              </ul>
-            </li>
-            <li>
-              The Summoner, Swashbuckler, and Witch have been added as new path
-              options.
-            </li>
-          </ul>
+          <ChangelogSection title="Preview 4 to Preview 5">
+            <h3>Chapter 1: Gameplay</h3>
+            <ul>
+              <li>"Thematic Path Talent" section added.</li>
+              <li>Magic Examples clarified.</li>
+              <li>Spellcasting Talents page added.</li>
+              <li>Weapon Styles moved to Optional Rules.</li>
+            </ul>
 
-          <h3>Chapter 7: Game Options (New)</h3>
-          <ul>
-            <li>Setting Dials added.</li>
-            <li>Optional Rules added.</li>
-            <li>Flavors of Fantasy expanded to one page each.</li>
-          </ul>
+            <h3>Chapter 2: Adventurers</h3>
+            <ul>
+              <li>Rationale added to Legacy Core Talents.</li>
+              <li>Legacy Bard talent added.</li>
+              <li>Bard: Jack of all Trades updated.</li>
+              <li>Ranger: Core Updated.</li>
+              <li>
+                Rogue: Core Updated.
+                <ul>
+                  <li>According to Plan specialized and renamed Mastermind.</li>
+                </ul>
+              </li>
+              <li>
+                Sorcerer: Magic Sense buffed and clarified. Spelleater minor
+                changes.
+              </li>
+              <li>
+                Summoner: Core Updated.
+                <ul>
+                  <li>Universal Language replaced with Monster Menagerie.</li>
+                  <li>Chosen Eidolon replaced with Shared Soul.</li>
+                </ul>
+              </li>
+              <li>Wizard: Familiar replaced by Countermagic.</li>
+              <li>
+                Witch: Core talent buffed.
+                <ul>
+                  <li>Karmic Debt cut. Replaced by Familiar.</li>
+                </ul>
+              </li>
+              <li>
+                Herbalism and Primal Growth switched paths (Druid + Witch).
+              </li>
+              <li>Magus switched to using the weapon as the touchstones.</li>
+              <li>Added Pint-Sized as Background talent.</li>
+              <li>More purple guidance boxes added.</li>
+            </ul>
 
-          <RuleDivider className="w-full text-grimwild-green-light my-8" />
+            <h3>Chapter 3: GM Toolkit</h3>
+            <ul>
+              <li>Attacking Multiple added to Combat Rulings.</li>
+            </ul>
 
-          <h2>Preview 3 to Preview 4</h2>
+            <h3>Chapter 6: Player Options (Removed)</h3>
+            <ul>
+              <li>
+                Paths and talents moved to Chapter 2: Adventurers.
+                Group-Building Questions and Distinctive Features (reworked to
+                NPC Crucibles) moved to Chapter 7: Extras.
+              </li>
+            </ul>
 
-          <h3>Chapter 1: Gameplay</h3>
-          <ul>
-            <li>Story (meta-currency) renamed Thread.</li>
-            <li>Protecting Others (from v1.4 assists) added.</li>
-            <li>Arcana expanded, Artifacts merged with Mythic.</li>
-          </ul>
+            <h3>Chapter 7: Extras</h3>
+            <ul>
+              <li>
+                Writers' Room, Homebrew Guidance, and Rest Resets added to
+                Optional Rules.
+              </li>
+              <li>INDEX / GLOSSARY added.</li>
+            </ul>
+          </ChangelogSection>
 
-          <h3>Chapter 2: Adventurers</h3>
-          <ul>
-            <li>
-              Party concepts updated: added Merchants and Scholars, cut Avengers
-              and Vassals.
-            </li>
-            <li>Berserker: Flesh Wounds updated to be more like original.</li>
-            <li>Ranger: Quarry widened to include anyone attacking.</li>
-            <li>Sorcerer: Eldritch Growth clarified.</li>
-            <li>
-              Warlock: Core Updated.
-              <ul>
-                <li>Ritualist renamed Blood Rituals, slight buff.</li>
-                <li>Eldritch Weaponry renamed Magus, reworked.</li>
-              </ul>
-            </li>
-            <li>Wizard: Archivist updated for new arcana rules.</li>
-          </ul>
+          <ChangelogSection title="Preview 5 to Preview 6">
+            <ul>
+              <li>Partial art added.</li>
+            </ul>
 
-          <h3>Chapter 3: GM Toolkit</h3>
-          <ul>
-            <li>
-              Build Up is no longer required to introduce Challenges, only
-              suggested.
-            </li>
-            <li>Examples of play updated.</li>
-          </ul>
+            <h3>Chapter 1: Gameplay</h3>
+            <ul>
+              <li>Power pools clarified.</li>
+              <li>Spellcasting Rulings - Summoned Creatures clarified.</li>
+            </ul>
 
-          <h3>Chapter 4: Exploration</h3>
-          <ul>
-            <li>Expanded to include Downtime rules.</li>
-          </ul>
+            <h3>Chapter 2: Adventurers</h3>
+            <ul>
+              <li>
+                Talents exclusive to paths have been noted with [Path-Name
+                Only].
+              </li>
+              <li>
+                Summoner
+                <ul>
+                  <li>Guidance updated.</li>
+                  <li>Core buffed.</li>
+                  <li>Monster Menagerie clarified.</li>
+                </ul>
+              </li>
+            </ul>
 
-          <h3>Chapter 5: Monsters</h3>
-          <ul>
-            <li>Added the Kraken, Land Shark, and Mephit.</li>
-          </ul>
-
-          <h3>Chapter 6: Player Options</h3>
-          <ul>
-            <li>
-              Artificer: Core Updated.
-              <ul>
-                <li>Tinkerer renamed Magnum Opus, reworked.</li>
-              </ul>
-            </li>
-            <li>Psion: Wilder cut, replaced with Shift Form.</li>
-            <li>
-              Summoner: Universal Language updated to match new Witch core.
-            </li>
-            <li>Swashbuckler: Core Updated.</li>
-            <li>Witch: Core Updated.</li>
-          </ul>
-
-          <h3>Chapter 8: Extras (new)</h3>
-          <ul>
-            <li>Hex Flowers added as GM Tool.</li>
-            <li>Story Kit Explanation added.</li>
-            <li>Expanded solo play rules added.</li>
-            <li>List of Arcana added.</li>
-            <li>Random Potion Generator updated from 1.4.</li>
-          </ul>
-
-          <RuleDivider className="w-full text-grimwild-green-light my-8" />
-
-          <h2>Preview 4 to Preview 5</h2>
-
-          <h3>Chapter 1: Gameplay</h3>
-          <ul>
-            <li>"Thematic Path Talent" section added.</li>
-            <li>Magic Examples clarified.</li>
-            <li>Spellcasting Talents page added.</li>
-            <li>Weapon Styles moved to Optional Rules.</li>
-          </ul>
-
-          <h3>Chapter 2: Adventurers</h3>
-          <ul>
-            <li>Rationale added to Legacy Core Talents.</li>
-            <li>Legacy Bard talent added.</li>
-            <li>Bard: Jack of all Trades updated.</li>
-            <li>Ranger: Core Updated.</li>
-            <li>
-              Rogue: Core Updated.
-              <ul>
-                <li>According to Plan specialized and renamed Mastermind.</li>
-              </ul>
-            </li>
-            <li>
-              Sorcerer: Magic Sense buffed and clarified. Spelleater minor
-              changes.
-            </li>
-            <li>
-              Summoner: Core Updated.
-              <ul>
-                <li>Universal Language replaced with Monster Menagerie.</li>
-                <li>Chosen Eidolon replaced with Shared Soul.</li>
-              </ul>
-            </li>
-            <li>Wizard: Familiar replaced by Countermagic.</li>
-            <li>
-              Witch: Core talent buffed.
-              <ul>
-                <li>Karmic Debt cut. Replaced by Familiar.</li>
-              </ul>
-            </li>
-            <li>Herbalism and Primal Growth switched paths (Druid + Witch).</li>
-            <li>Magus switched to using the weapon as the touchstones.</li>
-            <li>Added Pint-Sized as Background talent.</li>
-            <li>More purple guidance boxes added.</li>
-          </ul>
-
-          <h3>Chapter 3: GM Toolkit</h3>
-          <ul>
-            <li>Attacking Multiple added to Combat Rulings.</li>
-          </ul>
-
-          <h3>Chapter 6: Player Options (Removed)</h3>
-          <ul>
-            <li>
-              Paths and talents moved to Chapter 2: Adventurers. Group-Building
-              Questions and Distinctive Features (reworked to NPC Crucibles)
-              moved to Chapter 7: Extras.
-            </li>
-          </ul>
-
-          <h3>Chapter 7: Extras</h3>
-          <ul>
-            <li>
-              Writers' Room, Homebrew Guidance, and Rest Resets added to
-              Optional Rules.
-            </li>
-            <li>INDEX / GLOSSARY added.</li>
-          </ul>
-
-          <RuleDivider className="w-full text-grimwild-green-light my-8" />
-
-          <h2>Preview 5 to Preview 6</h2>
-
-          <ul>
-            <li>Partial art added.</li>
-          </ul>
-
-          <h3>Chapter 1: Gameplay</h3>
-          <ul>
-            <li>Power pools clarified.</li>
-            <li>Spellcasting Rulings - Summoned Creatures clarified.</li>
-          </ul>
-
-          <h3>Chapter 2: Adventurers</h3>
-          <ul>
-            <li>
-              Talents exclusive to paths have been noted with [Path-Name Only].
-            </li>
-            <li>
-              Summoner
-              <ul>
-                <li>Guidance updated.</li>
-                <li>Core buffed.</li>
-                <li>Monster Menagerie clarified.</li>
-              </ul>
-            </li>
-          </ul>
-
-          <h3>Chapter 3: GM Toolkit</h3>
-          <ul>
-            <li>Combat Rulings - Ranged clarified.</li>
-          </ul>
+            <h3>Chapter 3: GM Toolkit</h3>
+            <ul>
+              <li>Combat Rulings - Ranged clarified.</li>
+            </ul>
+          </ChangelogSection>
         </div>
       </div>
     </div>
