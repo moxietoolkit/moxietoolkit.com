@@ -192,10 +192,10 @@ export default function CommunityEditionPage() {
 
           <ul className="list-none flex flex-wrap gap-x-2 gap-y-2 p-0! max-w-full">
             {previewLinks.current.map((link) => (
-              <li key={link.href}>
+              <li key={link.href} className="max-w-full min-w-0">
                 <a
                   href={link.href}
-                  className="bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold no-underline whitespace-nowrap"
+                  className="inline-block max-w-full bg-grimwild-yellow hover:bg-grimwild-yellow-dark text-grimwild-dark px-4 py-2 rounded-md font-bold no-underline whitespace-normal"
                 >
                   {link.label}
                 </a>
