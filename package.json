@@ -21,7 +21,6 @@
     "@next/mdx": "^16.0.7",
     "@types/mdx": "^2.0.13",
     "clsx": "^2.1.1",
-    "fathom-client": "^3.7.2",
     "gray-matter": "^4.0.3",
     "moxietoolkit": "github:moxietoolkit/srd",
     "next": "^16.2.9",
