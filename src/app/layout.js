@@ -1,7 +1,6 @@
 import './globals.css';
 import PropTypes from 'prop-types';
 import Script from 'next/script';
-import Fathom from '../utils/fathom';
 import NavigationWrapper from '../components/NavigationWrapper';
 import { getNavigation } from '../components/navigation';
 
@@ -24,7 +23,6 @@ export default async function RootLayout({ children }) {
           strategy="afterInteractive"
           fetchPriority="low"
         />
-        <Fathom />
         <NavigationWrapper navigation={navigation}>
           {children}
         </NavigationWrapper>
